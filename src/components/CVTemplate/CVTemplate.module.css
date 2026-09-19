@@ -1,0 +1,242 @@
+/* Hidden offscreen wrapper so it renders into DOM for html2pdf without showing on the main page */
+.cvWrapper {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  width: 800px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: -999;
+}
+
+.cvContainer {
+  width: 800px;
+  min-height: 1120px;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  color: #1e293b;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.khmerFont {
+  font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.khmerFont * {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* ================= LEFT SIDEBAR ================= */
+.sidebar {
+  width: 260px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 32px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.profileImage {
+  width: 130px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sidebarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebarHeading {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
+  border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+  padding-bottom: 4px;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.78rem;
+}
+
+.contactLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.contactVal {
+  display: block;
+  color: #f1f5f9;
+  word-break: break-all;
+}
+
+.skillGroup {
+  margin-bottom: 6px;
+}
+
+.skillGroupTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 2px;
+}
+
+.skillItems {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.languageList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+/* ================= MAIN CONTENT ================= */
+.mainContent {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 32px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.header {
+  margin-bottom: 4px;
+}
+
+.name {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.jobTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4f46e5;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 0;
+}
+
+.headerLine {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, #4f46e5, #38bdf8);
+  border-radius: 2px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0f172a;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 4px;
+  margin: 0;
+}
+
+.summaryText {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #334155;
+  margin: 0;
+}
+
+.projectItem {
+  margin-bottom: 6px;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.itemTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.itemMeta {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+.dateBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  background-color: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.institution {
+  font-size: 0.74rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.bulletList {
+  list-style-type: disc;
+  padding-left: 16px;
+  margin: 2px 0 0 0;
+}
+
+.bulletList li {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #334155;
+  margin-bottom: 2px;
+}
+
+.timelineItem {
+  margin-bottom: 4px;
+}

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Terminal } from 'lucide-react';
+import { ArrowRight, Download, Terminal, Loader2 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import CVTemplate from '../../components/CVTemplate/CVTemplate';
 import profilePhoto from '../../assets/Meng.jpg';
 import styles from './Hero.module.css';
 
@@ -15,6 +16,8 @@ export default function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const cvRef = useRef(null);
 
   // Reset typewriter when language changes
   useEffect(() => {
@@ -57,21 +60,61 @@ export default function Hero() {
     }
   };
 
-  const handleDownloadCV = () => {
-    const cvContent = t.hero.cvContent;
-    const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = t.hero.cvFileName || 'Yim_Lemeng_Resume.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+  const handleDownloadCV = async () => {
+    if (isGeneratingPdf) return;
+    setIsGeneratingPdf(true);
+
+    try {
+      const html2pdf = (await import('html2pdf.js')).default;
+      const element = cvRef.current;
+
+      if (!element) {
+        throw new Error('CV element not found');
+      }
+
+      const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
+
+      const opt = {
+        margin: [5, 5, 5, 5],
+        filename: fileName,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          letterRendering: true,
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait',
+        },
+      };
+
+      await html2pdf().set(opt).from(element).save();
+    } catch (err) {
+      console.error('Failed to generate PDF:', err);
+      // Fallback text download in case PDF generation has an unexpected issue
+      const cvContent = t.hero.cvContent;
+      const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = t.hero.cvFileName || 'Yim_Lemeng_Resume.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } finally {
+      setIsGeneratingPdf(false);
+    }
   };
 
   return (
     <section id="home" className={`${styles.hero} section-padding`}>
+      {/* Hidden CV template used for generating PDF */}
+      <CVTemplate ref={cvRef} language={language} />
+
       <div className={`${styles.heroContainer} container`}>
         {/* Intro text */}
         <motion.div 
@@ -99,8 +142,21 @@ export default function Hero() {
           </p>
 
           <div className={styles.ctaGroup}>
-            <button onClick={handleDownloadCV} className={styles.btnPrimary}>
-              {t.hero.downloadCv} <Download size={18} />
+            <button 
+              onClick={handleDownloadCV} 
+              disabled={isGeneratingPdf} 
+              className={styles.btnPrimary}
+              title="Download Professional PDF Resume"
+            >
+              {isGeneratingPdf ? (
+                <>
+                  {language === 'km' ? 'កំពុងបង្កើត PDF...' : 'Generating PDF...'} <Loader2 className={styles.spinner} size={18} />
+                </>
+              ) : (
+                <>
+                  {t.hero.downloadCv} (PDF) <Download size={18} />
+                </>
+              )}
             </button>
             <a href="#contact" onClick={handleContactScroll} className={styles.btnSecondary}>
               {t.hero.contactMe} <ArrowRight size={18} />
