@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// API Axios instance
 const api = axios.create({
   timeout: 5000,
   headers: {
@@ -8,12 +7,9 @@ const api = axios.create({
   },
 });
 
-// Service for contact form submission
 export const submitContactForm = async (formData) => {
-  // We will read the Formspree URL from environment variables or use a default placeholder
   const formspreeUrl = import.meta.env.VITE_FORMSPREE_URL || 'https://formspree.io/f/your_formspree_id_here';
 
-  // If the user has not configured their Formspree ID yet, fallback to simulation mode
   if (formspreeUrl.includes('your_formspree_id_here')) {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     return {
@@ -22,7 +18,6 @@ export const submitContactForm = async (formData) => {
     };
   }
 
-  // Live POST request to Formspree
   try {
     const response = await api.post(formspreeUrl, formData);
     if (response.status === 200 || response.data.ok) {

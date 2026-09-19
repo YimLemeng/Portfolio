@@ -21,6 +21,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Khmer Unicode Font & Ligature Fix */
+[lang="km"] {
+  font-family: 'Kantumruy Pro', var(--font-sans);
+}
+
+[lang="km"] *,
+[lang="km"] .subtitle,
+[lang="km"] h1,
+[lang="km"] h2,
+[lang="km"] h3,
+[lang="km"] h4,
+[lang="km"] p,
+[lang="km"] span,
+[lang="km"] button {
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;
