@@ -139,9 +139,3 @@ docker compose down
 - **Phone**: [+855 (69) 232-123](tel:+85569232123)
 - **GitHub**: [@YimLemeng](https://github.com/YimLemeng)
 - **Location**: Phnom Penh, Cambodia
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
