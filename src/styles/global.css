@@ -22,21 +22,22 @@ body {
 }
 
 /* Khmer Unicode Font & Ligature Fix */
-[lang="km"] {
-  font-family: 'Kantumruy Pro', var(--font-sans);
+[lang="km"] body,
+[lang="km"] * {
+  font-family: 'Kantumruy Pro', var(--font-sans) !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
 }
 
-[lang="km"] *,
-[lang="km"] .subtitle,
 [lang="km"] h1,
 [lang="km"] h2,
 [lang="km"] h3,
 [lang="km"] h4,
 [lang="km"] p,
 [lang="km"] span,
+[lang="km"] a,
 [lang="km"] button {
-  letter-spacing: normal !important;
-  text-transform: none !important;
+  line-height: 1.5;
 }
 
 a {
