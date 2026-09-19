@@ -6,15 +6,16 @@ import {
   AppWindow, GitBranch, Terminal, PlaySquare
 } from 'lucide-react';
 import { Github } from '../../components/Icons/Icons';
+import { useLanguage } from '../../context/LanguageContext';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import SkillBadge from '../../components/SkillBadge/SkillBadge';
 import styles from './Skills.module.css';
 
-const CATEGORIES = [
-  { id: 'backend', title: 'Backend Development', icon: Server },
-  { id: 'desktop', title: 'Desktop Development', icon: Laptop },
-  { id: 'database', title: 'Database Systems', icon: Database },
-  { id: 'tools', title: 'Development Tools', icon: Wrench },
+const CATEGORY_META = [
+  { id: 'backend', icon: Server },
+  { id: 'desktop', icon: Laptop },
+  { id: 'database', icon: Database },
+  { id: 'tools', icon: Wrench },
 ];
 
 const SKILLS_BY_CATEGORY = {
@@ -55,10 +56,12 @@ const cardVariants = {
 };
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className={`${styles.skills} section-padding`}>
       <div className="container">
-        <SectionHeader title="My Skills" subtitle="Core Competencies" />
+        <SectionHeader title={t.skills.title} subtitle={t.skills.subtitle} />
 
         <motion.div 
           className={styles.grid}
@@ -67,9 +70,10 @@ export default function Skills() {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
         >
-          {CATEGORIES.map((cat) => {
+          {CATEGORY_META.map((cat) => {
             const CatIcon = cat.icon;
             const skillsList = SKILLS_BY_CATEGORY[cat.id];
+            const categoryTitle = t.skills.categories[cat.id] || cat.id;
 
             return (
               <motion.div 
@@ -82,7 +86,7 @@ export default function Skills() {
                   <div className={styles.iconContainer}>
                     <CatIcon size={22} />
                   </div>
-                  <h3 className={styles.categoryTitle}>{cat.title}</h3>
+                  <h3 className={styles.categoryTitle}>{categoryTitle}</h3>
                 </div>
                 
                 <div className={styles.skillsContainer}>

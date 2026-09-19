@@ -2,6 +2,7 @@ import React from 'react';
 import { ExternalLink, CheckCircle } from 'lucide-react';
 import { Github } from '../Icons/Icons';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './ProjectCard.module.css';
 
 export default function ProjectCard({
@@ -13,6 +14,8 @@ export default function ProjectCard({
   githubUrl,
   demoUrl,
 }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       className={`${styles.card} glass`}
@@ -57,7 +60,7 @@ export default function ProjectCard({
         
         {features.length > 0 && (
           <div className={styles.featuresSection}>
-            <h4 className={styles.featuresTitle}>Key Features:</h4>
+            <h4 className={styles.featuresTitle}>{t.projects.keyFeatures}</h4>
             <ul className={styles.featuresList}>
               {features.map((feature, idx) => (
                 <li key={idx} className={styles.featureItem}>
@@ -85,7 +88,7 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className={styles.actionBtnSecondary}
             >
-              <Github size={16} /> Code
+              <Github size={16} /> {t.projects.codeBtn}
             </a>
           )}
           {demoUrl && (
@@ -95,7 +98,7 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className={styles.actionBtnPrimary}
             >
-              Demo <ExternalLink size={16} />
+              {t.projects.demoBtn} <ExternalLink size={16} />
             </a>
           )}
         </div>

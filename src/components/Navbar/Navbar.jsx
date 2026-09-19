@@ -2,29 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import LanguageToggle from '../LanguageToggle/LanguageToggle';
+import { useLanguage } from '../../context/LanguageContext';
 import styles from './Navbar.module.css';
-
-const NAV_ITEMS = [
-  { label: 'Home', href: '#home', id: 'home' },
-  { label: 'About', href: '#about', id: 'about' },
-  { label: 'Skills', href: '#skills', id: 'skills' },
-  { label: 'Projects', href: '#projects', id: 'projects' },
-  { label: 'Experience', href: '#experience', id: 'experience' },
-  { label: 'Contact', href: '#contact', id: 'contact' },
-];
 
 export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t.nav.home, href: '#home', id: 'home' },
+    { label: t.nav.about, href: '#about', id: 'about' },
+    { label: t.nav.skills, href: '#skills', id: 'skills' },
+    { label: t.nav.projects, href: '#projects', id: 'projects' },
+    { label: t.nav.experience, href: '#experience', id: 'experience' },
+    { label: t.nav.contact, href: '#contact', id: 'contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
       // Simple, robust scroll spy logic
-      const scrollPosition = window.scrollY + 150; // offset for nav height + safety margin
-      for (const item of NAV_ITEMS) {
+      const scrollPosition = window.scrollY + 150;
+      for (const item of navItems) {
         const el = document.getElementById(item.id);
         if (el) {
           const { offsetTop, offsetHeight } = el;
@@ -37,7 +40,6 @@ export default function Navbar({ theme, toggleTheme }) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    // Trigger initially
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
@@ -69,7 +71,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Desktop Nav */}
         <nav className={styles.desktopNav}>
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <a
               key={item.id}
               href={item.href}
@@ -88,8 +90,9 @@ export default function Navbar({ theme, toggleTheme }) {
           ))}
         </nav>
 
-        {/* Theme Toggle & Mobile Menu Trigger */}
+        {/* Language Toggle, Theme Toggle & Mobile Menu Trigger */}
         <div className={styles.actions}>
+          <LanguageToggle />
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           
           <button
@@ -113,7 +116,7 @@ export default function Navbar({ theme, toggleTheme }) {
             className={`${styles.mobileMenu} glass`}
           >
             <div className={styles.mobileLinks}>
-              {NAV_ITEMS.map((item) => (
+              {navItems.map((item) => (
                 <a
                   key={item.id}
                   href={item.href}

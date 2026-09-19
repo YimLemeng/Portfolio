@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Terminal } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import profilePhoto from '../../assets/Meng.jpg';
 import styles from './Hero.module.css';
-
-const TITLES = [
-  'Backend Developer',
-  'Java / Spring Boot Developer',
-  'C# .NET Desktop Developer',
-];
 
 const TYPING_SPEED = 150;
 const DELETING_SPEED = 75;
 const PAUSE_DURATION = 2000;
 
 export default function Hero() {
+  const { t, language } = useLanguage();
+  const titles = t.hero.titles;
   const [titleIndex, setTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Reset typewriter when language changes
+  useEffect(() => {
+    setTitleIndex(0);
+    setCurrentText('');
+    setIsDeleting(false);
+  }, [language]);
+
   useEffect(() => {
     let timer;
-    const currentFullTitle = TITLES[titleIndex];
+    const currentFullTitle = titles[titleIndex] || titles[0];
 
     if (isDeleting) {
       timer = setTimeout(() => {
@@ -37,11 +41,11 @@ export default function Hero() {
       timer = setTimeout(() => setIsDeleting(true), PAUSE_DURATION);
     } else if (isDeleting && currentText === '') {
       setIsDeleting(false);
-      setTitleIndex((prevIndex) => (prevIndex + 1) % TITLES.length);
+      setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
     }
 
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, titleIndex]);
+  }, [currentText, isDeleting, titleIndex, titles]);
 
   const handleContactScroll = (e) => {
     e.preventDefault();
@@ -54,13 +58,12 @@ export default function Hero() {
   };
 
   const handleDownloadCV = () => {
-    const cvContent = `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/yim-lemeng\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nPROJECTS:\n1. Bus Station Management System (C# Windows Forms, SQL Server)\n2. Customer Management REST API (Spring Boot, PostgreSQL)\n3. Employee Management System (Spring Boot, React JS, PostgreSQL)\n\nEDUCATION:\nBachelor of Science in Information Technology.`;
-    
-    const blob = new Blob([cvContent], { type: 'text/plain' });
+    const cvContent = t.hero.cvContent;
+    const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Yim_Lemeng_Resume.txt';
+    link.download = t.hero.cvFileName || 'Yim_Lemeng_Resume.txt';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -79,11 +82,11 @@ export default function Hero() {
         >
           <div className={`${styles.tagline} glass`}>
             <Terminal size={14} className={styles.tagIcon} />
-            <span>Ready for Opportunities</span>
+            <span>{t.hero.tagline}</span>
           </div>
           
           <h1 className={styles.greeting}>
-            Hi, I'm <span className={styles.name}>Yim Lemeng</span>
+            {t.hero.greeting} <span className={styles.name}>{t.hero.name}</span>
           </h1>
           
           <div className={styles.animatedTitleWrapper}>
@@ -92,17 +95,15 @@ export default function Hero() {
           </div>
 
           <p className={styles.bio}>
-            A versatile software developer specializing in building robust enterprise backend architectures using 
-            <strong> Spring Boot & Java</strong> and desktop client solutions with <strong>C# Windows Forms</strong>. 
-            Focused on clean code, REST APIs, and relational databases.
+            {t.hero.bio}
           </p>
 
           <div className={styles.ctaGroup}>
             <button onClick={handleDownloadCV} className={styles.btnPrimary}>
-              Download CV <Download size={18} />
+              {t.hero.downloadCv} <Download size={18} />
             </button>
             <a href="#contact" onClick={handleContactScroll} className={styles.btnSecondary}>
-              Contact Me <ArrowRight size={18} />
+              {t.hero.contactMe} <ArrowRight size={18} />
             </a>
           </div>
         </motion.div>

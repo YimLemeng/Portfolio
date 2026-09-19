@@ -2,14 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
 import { Github } from '../../components/Icons/Icons';
+import { useLanguage } from '../../context/LanguageContext';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import styles from './Contact.module.css';
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className={`${styles.contact} section-padding`}>
       <div className="container">
-        <SectionHeader title="Contact Me" subtitle="Get In Touch" />
+        <SectionHeader title={t.contact.title} subtitle={t.contact.subtitle} />
 
         <div className={styles.centerWrapper}>
           <motion.div 
@@ -19,10 +22,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className={styles.title}>Let's Connect</h3>
+            <h3 className={styles.title}>{t.contact.connectHeading}</h3>
             <p className={styles.subtitle}>
-              I am actively seeking opportunities for Backend Developer and Java Developer roles. 
-              Feel free to reach out via email, phone, or connect with me on GitHub.
+              {t.contact.connectSubtitle}
             </p>
 
             <div className={styles.infoGrid}>
@@ -31,7 +33,7 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <div className={styles.cardContent}>
-                  <h4 className={styles.infoTitle}>Email</h4>
+                  <h4 className={styles.infoTitle}>{t.contact.emailLabel}</h4>
                   <p className={styles.infoValue}>yimlemeng.ym@gmail.com</p>
                 </div>
               </a>
@@ -41,7 +43,7 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div className={styles.cardContent}>
-                  <h4 className={styles.infoTitle}>Phone Number</h4>
+                  <h4 className={styles.infoTitle}>{t.contact.phoneLabel}</h4>
                   <p className={styles.infoValue}>+855 (69) 232-123</p>
                 </div>
               </a>
@@ -51,7 +53,7 @@ export default function Contact() {
                   <Github size={24} />
                 </div>
                 <div className={styles.cardContent}>
-                  <h4 className={styles.infoTitle}>GitHub</h4>
+                  <h4 className={styles.infoTitle}>{t.contact.githubLabel}</h4>
                   <p className={styles.infoValue}>github.com/YimLemeng</p>
                 </div>
               </a>
