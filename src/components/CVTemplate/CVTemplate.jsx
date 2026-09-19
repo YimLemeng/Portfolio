@@ -27,7 +27,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <span className={styles.contactVal}>+855 (69) 232-123</span>
               </li>
               <li>
-                <span className={styles.contactLabel}>{isKhmer ? 'ហ្គីតហាប់' : 'GITHUB'}</span>
+                <span className={styles.contactLabel}>{isKhmer ? 'GITHUB' : 'GITHUB'}</span>
                 <span className={styles.contactVal}>github.com/YimLemeng</span>
               </li>
               <li>
