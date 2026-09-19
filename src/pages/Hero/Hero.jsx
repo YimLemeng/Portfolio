@@ -75,14 +75,17 @@ export default function Hero() {
       const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
 
       const opt = {
-        margin: [5, 5, 5, 5],
+        margin: 0,
         filename: fileName,
-        image: { type: 'jpeg', quality: 0.98 },
+        image: { type: 'jpeg', quality: 1.0 },
         html2canvas: {
           scale: 2,
           useCORS: true,
           logging: false,
           letterRendering: true,
+          scrollY: 0,
+          scrollX: 0,
+          windowWidth: 740,
         },
         jsPDF: {
           unit: 'mm',
