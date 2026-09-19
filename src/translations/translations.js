@@ -198,7 +198,7 @@ export const translations = {
     },
     hero: {
       tagline: 'ត្រៀមខ្លួនសម្រាប់ឱកាសការងារ',
-      greeting: 'សួស្តី! ខ្ញុំបាទឈ្មោះ',
+      greeting: 'ជំរាបសួរ! ខ្ញុំបាទឈ្មោះ',
       name: 'យឹម លីម៉េង',
       titles: [
         'អ្នកអភិវឌ្ឍន៍ Backend Developer',
