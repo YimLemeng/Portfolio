@@ -64,7 +64,7 @@ export default function Hero() {
     setIsGeneratingPdf(true);
 
     try {
-      const html2canvas = (await import('html2canvas')).default;
+      const html2pdf = (await import('html2pdf.js')).default;
       const { jsPDF } = await import('jspdf');
       const element = cvRef.current;
 
@@ -74,26 +74,25 @@ export default function Hero() {
 
       const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
 
-      // Clone element to body at fixed 0, 0 to ensure flawless html2canvas coordinates without offscreen clipping
-      const clone = element.cloneNode(true);
-      clone.style.position = 'fixed';
-      clone.style.top = '0';
-      clone.style.left = '0';
-      clone.style.zIndex = '999999';
-      clone.style.pointerEvents = 'none';
-      document.body.appendChild(clone);
+      const opt = {
+        margin: 0,
+        filename: fileName,
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          letterRendering: true,
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait',
+        },
+      };
 
-      const canvas = await html2canvas(clone, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        width: 740,
-        height: 1047,
-        scrollX: 0,
-        scrollY: 0,
-      });
-
-      document.body.removeChild(clone);
+      // html2pdf renders completely offscreen (-100000px) so nothing appears on user's screen
+      const canvas = await html2pdf().from(element).set(opt).toCanvas().get('canvas');
 
       const pdf = new jsPDF({
         unit: 'mm',
@@ -102,7 +101,7 @@ export default function Hero() {
       });
 
       const imgData = canvas.toDataURL('image/jpeg', 1.0);
-      // Full bleed 210mm x 297mm to guarantee 100% full coverage without bottom or side cutoffs
+      // Full bleed 210mm x 297mm covers 100% of A4 page with zero cutoffs
       pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
       pdf.save(fileName);
     } catch (err) {
