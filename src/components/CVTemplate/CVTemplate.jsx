@@ -43,6 +43,43 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
             </ul>
           </div>
 
+          {/* Personal Information Section */}
+          <div className={styles.sideSection}>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ព័ត៌មានផ្ទាល់ខ្លួន' : 'INFOS PERSONNELLES'}</h3>
+            <div className={styles.personalList}>
+              <div className={styles.personalRow}>
+                <span className={styles.personalLabel}>{isKhmer ? 'ភេទ' : 'Sex'}:</span>
+                <span className={styles.personalValue}>{isKhmer ? 'ប្រុស' : 'Male'}</span>
+              </div>
+              <div className={styles.personalRow}>
+                <span className={styles.personalLabel}>{isKhmer ? 'ថ្ងៃកំណើត' : 'Date of Birth'}:</span>
+                <span className={styles.personalValue}>12-05-2000</span>
+              </div>
+              <div className={styles.personalRow}>
+                <span className={styles.personalLabel}>{isKhmer ? 'សញ្ជាតិ' : 'Nationality'}:</span>
+                <span className={styles.personalValue}>{isKhmer ? 'កម្ពុជា' : 'Cambodian'}</span>
+              </div>
+              <div className={styles.personalRow}>
+                <span className={styles.personalLabel}>{isKhmer ? 'ជនជាតិ' : 'Ethnic'}:</span>
+                <span className={styles.personalValue}>{isKhmer ? 'ខ្មែរ' : 'Khmer'}</span>
+              </div>
+              <div className={styles.personalRow}>
+                <span className={styles.personalLabel}>{isKhmer ? 'សាសនា' : 'Religion'}:</span>
+                <span className={styles.personalValue}>{isKhmer ? 'ព្រះពុទ្ធ' : 'Buddhism'}</span>
+              </div>
+              <div className={styles.personalRow}>
+                <span className={styles.personalLabel}>{isKhmer ? 'កម្ពស់' : 'Height'}:</span>
+                <span className={styles.personalValue}>1.65 m</span>
+              </div>
+              <div className={styles.personalPlace}>
+                <span className={styles.personalLabel}>{isKhmer ? 'ទីកន្លែងកំណើត' : 'Place of Birth'}:</span>
+                <span className={styles.personalPlaceVal}>
+                  {isKhmer ? 'ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង' : 'Battambang City, Battambang Province'}
+                </span>
+              </div>
+            </div>
+          </div>
+
           {/* Languages Section */}
           <div className={styles.sideSection}>
             <h3 className={styles.sideTitle}>{isKhmer ? 'ភាសា' : 'LANGUES'}</h3>

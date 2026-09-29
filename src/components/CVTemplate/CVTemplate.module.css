@@ -39,11 +39,11 @@
   max-width: 220px;
   background-color: #10375c;
   color: #ffffff;
-  padding: 24px 18px;
+  padding: 18px 16px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 11px;
 }
 
 /* Oval Avatar with White Border */
@@ -54,11 +54,11 @@
 }
 
 .avatarOval {
-  width: 120px;
-  height: 145px;
-  border-radius: 60px;
+  width: 112px;
+  height: 135px;
+  border-radius: 56px;
   overflow: hidden;
-  border: 3.5px solid #ffffff;
+  border: 3px solid #ffffff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
 }
@@ -74,18 +74,18 @@
 .sideSection {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
 }
 
 .sideTitle {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: #ffffff;
   text-transform: uppercase;
   margin: 0;
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
-  padding-bottom: 3px;
+  padding-bottom: 2.5px;
 }
 
 /* Contact List */
@@ -95,14 +95,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.67rem;
+  font-size: 0.66rem;
   color: #e2e8f0;
 }
 
@@ -120,7 +120,52 @@
 
 .emailText {
   word-break: break-all;
+  font-size: 0.63rem;
+}
+
+/* Personal Info */
+.personalList {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5px;
+}
+
+.personalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   font-size: 0.64rem;
+  line-height: 1.25;
+}
+
+.personalPlace {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  font-size: 0.64rem;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+.personalLabel {
+  color: #93c5fd;
+  font-weight: 600;
+  font-size: 0.63rem;
+  flex-shrink: 0;
+}
+
+.personalValue {
+  color: #f8fafc;
+  font-weight: 500;
+  text-align: right;
+  font-size: 0.64rem;
+}
+
+.personalPlaceVal {
+  color: #f8fafc;
+  font-weight: 500;
+  font-size: 0.61rem;
+  line-height: 1.25;
 }
 
 /* Language Bars */
