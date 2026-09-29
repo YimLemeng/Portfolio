@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Terminal, Loader2 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import CVTemplate from '../../components/CVTemplate/CVTemplate';
-import profilePhoto from '../../assets/Meng.jpg';
+import profilePhoto from '../../assets/YimLemeng.png';
 import styles from './Hero.module.css';
 
 const TYPING_SPEED = 150;
@@ -97,7 +97,6 @@ export default function Hero() {
       await html2pdf().set(opt).from(element).save();
     } catch (err) {
       console.error('Failed to generate PDF:', err);
-      // Fallback text download in case PDF generation has an unexpected issue
       const cvContent = t.hero.cvContent;
       const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
       const url = URL.createObjectURL(blob);
