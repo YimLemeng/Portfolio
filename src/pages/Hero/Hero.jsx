@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Terminal, Loader2 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import CVTemplate from '../../components/CVTemplate/CVTemplate';
-import profilePhoto from '../../assets/YimLemeng.png';
+import profilePhoto from '../../assets/Meng.png';
 import styles from './Hero.module.css';
 
 const TYPING_SPEED = 150;
