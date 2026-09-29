@@ -95,10 +95,10 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
             <div className={styles.langItem}>
               <div className={styles.langHeader}>
                 <span>{isKhmer ? 'ភាសាអង់គ្លេស' : 'English (Working)'}</span>
-                <span className={styles.langLevel}>75%</span>
+                <span className={styles.langLevel}>65%</span>
               </div>
               <div className={styles.barTrack}>
-                <div className={styles.barFill} style={{ width: '75%' }} />
+                <div className={styles.barFill} style={{ width: '65%' }} />
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
             </div>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Database</h4>
-              <p className={styles.skillDesc}>SQL Server, PostgreSQL, MySQL</p>
+              <p className={styles.skillDesc}>SQL Server, PostgreSQL</p>
             </div>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Tools & DevOps</h4>
@@ -128,7 +128,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
           <div className={styles.sideSection}>
             <h3 className={styles.sideTitle}>{isKhmer ? 'ចំណុចខ្លាំង' : 'KEY STRENGTHS'}</h3>
             <ul className={styles.sideBullets}>
-              <li>Clean Code & MVC Architecture</li>
+              <li>Clean Code & Layered Architecture</li>
               <li>Problem Solving & Algorithmic Logic</li>
               <li>Team Collaboration & Reliability</li>
               <li>Fast Learner & Adaptability</li>
@@ -201,7 +201,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                     <li>
                       {isKhmer
                         ? 'បានបញ្ចប់ការប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិថ្នាក់ជាតិ (បាក់ឌុប) ផ្នែកវិទ្យាសាស្ត្រពិត។'
-                        : 'Graduated with National High School Examination Certification (BacII) in Science and Mathematics.'}
+                        : 'Graduated with National High School Examination Certification (BacII) in Science.'}
                     </li>
                   </ul>
                 </div>
@@ -286,13 +286,13 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                     <span className={styles.techBadge}>Spring Boot | PostgreSQL</span>
                   </div>
                   <p className={styles.entrySub}>
-                    {isKhmer ? 'សេវាកម្ម Backend Web API' : 'Backend Microservice Architecture'}
+                    {isKhmer ? 'សេវាកម្ម Backend Web API' : 'Backend REST API Service'}
                   </p>
                   <ul className={styles.bulletList}>
                     <li>
                       {isKhmer
-                        ? 'បង្កើត RESTful API តាមស្តង់ដារ MVC Architecture ដោយប្រើ DTO Pattern និង Spring Data JPA / Hibernate។'
-                        : 'Architected robust RESTful API following MVC architecture, Data Transfer Objects (DTOs), and Spring Data JPA.'}
+                        ? 'បង្កើត RESTful API តាមស្តង់ដារ Layered Architecture ដោយប្រើ DTO Pattern និង Spring Data JPA / Hibernate។'
+                        : 'Architected robust RESTful API following Layered Architecture, Data Transfer Objects (DTOs), and Spring Data JPA.'}
                     </li>
                     <li>
                       {isKhmer
