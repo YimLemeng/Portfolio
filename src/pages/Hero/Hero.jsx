@@ -65,7 +65,8 @@ export default function Hero() {
     setIsGeneratingPdf(true);
 
     try {
-      const html2pdf = (await import('html2pdf.js')).default;
+      const html2canvas = (await import('html2canvas')).default;
+      const { jsPDF } = await import('jspdf');
       const element = cvRef.current;
 
       if (!element) {
@@ -74,27 +75,28 @@ export default function Hero() {
 
       const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
 
-      const opt = {
-        margin: 0,
-        filename: fileName,
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          letterRendering: true,
-          scrollY: 0,
-          scrollX: 0,
-          windowWidth: 740,
-        },
-        jsPDF: {
-          unit: 'mm',
-          format: 'a4',
-          orientation: 'portrait',
-        },
-      };
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        letterRendering: true,
+        scrollY: 0,
+        scrollX: 0,
+        windowWidth: 740,
+        width: 740,
+        height: 1047,
+      });
 
-      await html2pdf().set(opt).from(element).save();
+      const pdf = new jsPDF({
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait',
+      });
+
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      // Full bleed 210mm x 297mm to guarantee zero white margins or color cuts
+      pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+      pdf.save(fileName);
     } catch (err) {
       console.error('Failed to generate PDF:', err);
       const cvContent = t.hero.cvContent;

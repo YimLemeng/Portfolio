@@ -22,7 +22,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
 
           {/* Contact Section */}
           <div className={styles.sideSection}>
-            <h3 className={styles.sideTitle}>{isKhmer ? 'ទំនាក់ទំនង' : 'COORDONNÉES'}</h3>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ទំនាក់ទំនង' : 'CONTACT'}</h3>
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><Phone size={13} /></span>
@@ -45,7 +45,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
 
           {/* Personal Information Section */}
           <div className={styles.sideSection}>
-            <h3 className={styles.sideTitle}>{isKhmer ? 'ព័ត៌មានផ្ទាល់ខ្លួន' : 'INFOS PERSONNELLES'}</h3>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ព័ត៌មានផ្ទាល់ខ្លួន' : 'PERSONAL DETAILS'}</h3>
             <div className={styles.personalList}>
               <div className={styles.personalRow}>
                 <span className={styles.personalLabel}>{isKhmer ? 'ភេទ' : 'Sex'}:</span>
@@ -82,7 +82,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
 
           {/* Languages Section */}
           <div className={styles.sideSection}>
-            <h3 className={styles.sideTitle}>{isKhmer ? 'ភាសា' : 'LANGUES'}</h3>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ភាសា' : 'LANGUAGES'}</h3>
             <div className={styles.langItem}>
               <div className={styles.langHeader}>
                 <span>{isKhmer ? 'ភាសាខ្មែរ' : 'Khmer (Native)'}</span>
@@ -103,7 +103,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
 
           {/* Technical Skills Section */}
           <div className={styles.sideSection}>
-            <h3 className={styles.sideTitle}>{isKhmer ? 'ជំនាញបច្ចេកទេស' : 'COMPÉTENCES'}</h3>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ជំនាញបច្ចេកទេស' : 'TECHNICAL SKILLS'}</h3>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Backend</h4>
               <p className={styles.skillDesc}>Java, Spring Boot, REST APIs</p>
@@ -124,10 +124,10 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
 
           {/* Soft Skills & Interests */}
           <div className={styles.sideSection}>
-            <h3 className={styles.sideTitle}>{isKhmer ? 'ចំណុចខ្លាំង' : 'POINTS FORTS'}</h3>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ចំណុចខ្លាំង' : 'KEY STRENGTHS'}</h3>
             <ul className={styles.sideBullets}>
               <li>Clean Code & MVC</li>
-              <li>Problem Solving</li>
+              <li>Problem Solving & Logic</li>
               <li>Team Collaboration</li>
               <li>Continuous Learning</li>
             </ul>
@@ -143,17 +143,22 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
             <h2 className={styles.jobTitle}>
               {isKhmer ? 'អ្នកអភិវឌ្ឍន៍ SOFTWARE & BACKEND DEVELOPER' : 'SOFTWARE & BACKEND DEVELOPER'}
             </h2>
+            <p className={styles.summaryText}>
+              {isKhmer
+                ? 'និស្សិតឆ្នាំទី ៣ ផ្នែក IT ដែលមានចំណង់ចំណូលចិត្តខ្លាំងលើ Backend និង Desktop Development។ មានបទពិសោធន៍ក្នុងការកសាងប្រព័ន្ធដោយប្រើ Java (Spring Boot), C# WinForms និង Database (SQL Server, PostgreSQL)។'
+                : 'Dedicated Year 3 IT student specializing in Backend and Desktop Development. Strong practical foundation in Java (Spring Boot), C# (.NET WinForms), and relational databases (SQL Server, PostgreSQL), passionate about engineering clean and efficient solutions.'}
+            </p>
           </header>
 
           {/* Timeline Wrapper with Continuous Left Axis Line */}
           <div className={styles.timelineBody}>
             <div className={styles.verticalTrack} />
 
-            {/* ===== FORMATION / EDUCATION ===== */}
+            {/* ===== EDUCATION ===== */}
             <div className={styles.timelineSection}>
               <div className={styles.sectionHeaderRow}>
                 <div className={styles.sectionDot} />
-                <h3 className={styles.sectionHeading}>{isKhmer ? 'ការអប់រំ និងបណ្តុះបណ្តាល' : 'FORMATION'}</h3>
+                <h3 className={styles.sectionHeading}>{isKhmer ? 'ការអប់រំ និងបណ្តុះបណ្តាល' : 'EDUCATION'}</h3>
               </div>
 
               <div className={styles.entryBlock}>
@@ -187,11 +192,11 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
               </div>
             </div>
 
-            {/* ===== EXPÉRIENCE / PROJECTS ===== */}
+            {/* ===== FEATURED PROJECTS ===== */}
             <div className={styles.timelineSection}>
               <div className={styles.sectionHeaderRow}>
                 <div className={styles.sectionDot} />
-                <h3 className={styles.sectionHeading}>{isKhmer ? 'គម្រោងស្នាដៃសំខាន់ៗ' : 'PROJETS PRINCIPAUX'}</h3>
+                <h3 className={styles.sectionHeading}>{isKhmer ? 'គម្រោងស្នាដៃសំខាន់ៗ' : 'FEATURED PROJECTS'}</h3>
               </div>
 
               {/* Project 1 */}
@@ -271,14 +276,14 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
             <div className={styles.timelineSection}>
               <div className={styles.sectionHeaderRow}>
                 <div className={styles.sectionDot} />
-                <h3 className={styles.sectionHeading}>{isKhmer ? 'បទពិសោធន៍ការងារ' : 'EXPÉRIENCE PROFESSIONNELLE'}</h3>
+                <h3 className={styles.sectionHeading}>{isKhmer ? 'បទពិសោធន៍ការងារ' : 'WORK EXPERIENCE'}</h3>
               </div>
 
               <div className={styles.entryBlock}>
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>{isKhmer ? 'អ្នកបើកបរ (Driver)' : 'Driver'}</h4>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'អ្នកបើកបរដឹកជញ្ជូន (Driver)' : 'Express Delivery Driver'}</h4>
                     <span className={styles.entryDate}>2023 – 2024</span>
                   </div>
                   <p className={styles.entrySub}>Nham 24 Express — Phnom Penh</p>
@@ -289,7 +294,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកដឹកជញ្ជូន (Delivery Driver)' : 'Delivery Driver'}</h4>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកដឹកជញ្ជូន (Delivery Courier)' : 'Delivery Courier'}</h4>
                     <span className={styles.entryDate}>2020 – 2023</span>
                   </div>
                   <p className={styles.entrySub}>J&T Express — Phnom Penh</p>
@@ -300,7 +305,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកទទួលភ្ញៀវ (Receptionist)' : 'Receptionist'}</h4>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកទទួលភ្ញៀវ (Front Desk Receptionist)' : 'Front Desk Receptionist'}</h4>
                     <span className={styles.entryDate}>2019 – 2020</span>
                   </div>
                   <p className={styles.entrySub}>Jasmine Hotel — Phnom Penh</p>
