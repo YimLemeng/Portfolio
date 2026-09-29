@@ -19,7 +19,6 @@ export default function Hero() {
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const cvRef = useRef(null);
 
-  // Reset typewriter when language changes
   useEffect(() => {
     setTitleIndex(0);
     setCurrentText('');
@@ -75,17 +74,26 @@ export default function Hero() {
 
       const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
 
-      const canvas = await html2canvas(element, {
+      // Clone element to body at fixed 0, 0 to ensure flawless html2canvas coordinates without offscreen clipping
+      const clone = element.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.top = '0';
+      clone.style.left = '0';
+      clone.style.zIndex = '999999';
+      clone.style.pointerEvents = 'none';
+      document.body.appendChild(clone);
+
+      const canvas = await html2canvas(clone, {
         scale: 2,
         useCORS: true,
         logging: false,
-        letterRendering: true,
-        scrollY: 0,
-        scrollX: 0,
-        windowWidth: 740,
         width: 740,
         height: 1047,
+        scrollX: 0,
+        scrollY: 0,
       });
+
+      document.body.removeChild(clone);
 
       const pdf = new jsPDF({
         unit: 'mm',
@@ -94,7 +102,7 @@ export default function Hero() {
       });
 
       const imgData = canvas.toDataURL('image/jpeg', 1.0);
-      // Full bleed 210mm x 297mm to guarantee zero white margins or color cuts
+      // Full bleed 210mm x 297mm to guarantee 100% full coverage without bottom or side cutoffs
       pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
       pdf.save(fileName);
     } catch (err) {

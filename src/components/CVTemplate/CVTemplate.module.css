@@ -35,16 +35,16 @@
    LEFT SIDEBAR (Deep Classic Navy #10375c)
 =================================================== */
 .sidebar {
-  width: 220px;
-  min-width: 220px;
-  max-width: 220px;
+  width: 226px;
+  min-width: 226px;
+  max-width: 226px;
   background-color: #10375c;
   color: #ffffff;
-  padding: 18px 16px;
+  padding: 18px 15px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 9px;
   height: 100%;
 }
 
@@ -181,8 +181,15 @@
 .langHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.67rem;
   color: #e2e8f0;
+  font-weight: 600;
+}
+
+.langLevel {
+  font-size: 0.62rem;
+  color: #93c5fd;
   font-weight: 600;
 }
 
@@ -252,11 +259,11 @@
 .mainContent {
   flex: 1;
   background-color: #ffffff;
-  padding: 22px 24px 18px 22px;
+  padding: 18px 22px 14px 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   height: 100%;
 }
 
@@ -265,7 +272,7 @@
   margin-bottom: 2px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .name {
@@ -279,7 +286,7 @@
 }
 
 .jobTitle {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #2563eb;
   letter-spacing: 0.08em;
@@ -288,7 +295,7 @@
 }
 
 .summaryText {
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   color: #475569;
   line-height: 1.4;
   margin: 0;
@@ -301,7 +308,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   padding-left: 18px;
 }
 
@@ -309,7 +316,7 @@
 .verticalTrack {
   position: absolute;
   top: 6px;
-  bottom: 10px;
+  bottom: 8px;
   left: 4px;
   width: 2px;
   background-color: #10375c;
@@ -318,7 +325,7 @@
 .timelineSection {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
 }
 
 /* Section Header on the Timeline */
@@ -326,7 +333,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .sectionDot {
@@ -340,7 +347,7 @@
 }
 
 .sectionHeading {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 800;
   color: #10375c;
   letter-spacing: 0.06em;
@@ -353,7 +360,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .entryDot {
@@ -369,7 +376,7 @@
 .entryContent {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1.5px;
 }
 
 .entryTopRow {
@@ -379,14 +386,14 @@
 }
 
 .entryRole {
-  font-size: 0.74rem;
+  font-size: 0.73rem;
   font-weight: 700;
   color: #10375c;
   margin: 0;
 }
 
 .entryDate {
-  font-size: 0.64rem;
+  font-size: 0.63rem;
   font-style: italic;
   font-weight: 600;
   color: #2563eb;
@@ -394,7 +401,7 @@
 }
 
 .techBadge {
-  font-size: 0.61rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: #1d4ed8;
   background-color: #eff6ff;
@@ -405,7 +412,7 @@
 }
 
 .entrySub {
-  font-size: 0.66rem;
+  font-size: 0.65rem;
   font-style: italic;
   color: #64748b;
   margin: 0;
@@ -414,13 +421,16 @@
 /* Bullets */
 .bulletList {
   list-style-type: disc;
-  padding-left: 14px;
-  margin: 2px 0 0 0;
+  padding-left: 13px;
+  margin: 1.5px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
 }
 
 .bulletList li {
-  font-size: 0.65rem;
-  line-height: 1.35;
+  font-size: 0.635rem;
+  line-height: 1.36;
   color: #334155;
-  margin-bottom: 1px;
+  margin-bottom: 0;
 }
