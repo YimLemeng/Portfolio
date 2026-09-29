@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
-import profilePhoto from '../../assets/cv_profile.jpg';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
+import { Github } from '../Icons/Icons';
+import profilePhoto from '../../assets/Meng.png';
 import styles from './CVTemplate.module.css';
 
 const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
@@ -8,218 +10,268 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
   return (
     <div className={styles.cvWrapper}>
       <div ref={ref} className={`${styles.cvContainer} ${isKhmer ? styles.khmerFont : ''}`}>
-        {/* Left Column (Sidebar) */}
+        
+        {/* ================= LEFT SIDEBAR ================= */}
         <aside className={styles.sidebar}>
-          <div className={styles.photoContainer}>
-            <img src={profilePhoto} alt="Yim Lemeng" className={styles.profileImage} />
+          {/* Avatar with White Border & Oval Shape */}
+          <div className={styles.avatarWrapper}>
+            <div className={styles.avatarOval}>
+              <img src={profilePhoto} alt="Yim Lemeng" className={styles.avatarImg} />
+            </div>
           </div>
 
-          {/* Contact */}
-          <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarHeading}>{isKhmer ? 'ព័ត៌មានទំនាក់ទំនង' : 'CONTACT'}</h3>
+          {/* Contact Section */}
+          <div className={styles.sideSection}>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ទំនាក់ទំនង' : 'COORDONNÉES'}</h3>
             <ul className={styles.contactList}>
-              <li>
-                <span className={styles.contactLabel}>{isKhmer ? 'អ៊ីមែល' : 'EMAIL'}</span>
-                <span className={styles.contactVal}>yimlemeng.ym@gmail.com</span>
+              <li className={styles.contactItem}>
+                <span className={styles.iconBox}><Phone size={13} /></span>
+                <span>+855 (69) 232-123</span>
               </li>
-              <li>
-                <span className={styles.contactLabel}>{isKhmer ? 'លេខទូរស័ព្ទ' : 'PHONE'}</span>
-                <span className={styles.contactVal}>+855 (69) 232-123</span>
+              <li className={styles.contactItem}>
+                <span className={styles.iconBox}><Mail size={13} /></span>
+                <span className={styles.emailText}>yimlemeng.ym@gmail.com</span>
               </li>
-              <li>
-                <span className={styles.contactLabel}>{isKhmer ? 'GITHUB' : 'GITHUB'}</span>
-                <span className={styles.contactVal}>github.com/YimLemeng</span>
+              <li className={styles.contactItem}>
+                <span className={styles.iconBox}><Github size={13} /></span>
+                <span>github.com/YimLemeng</span>
               </li>
-              <li>
-                <span className={styles.contactLabel}>{isKhmer ? 'ទីលំនៅបច្ចុប្បន្ន' : 'LOCATION'}</span>
-                <span className={styles.contactVal}>{isKhmer ? 'ភ្នំពេញ, កម្ពុជា' : 'Phnom Penh, Cambodia'}</span>
+              <li className={styles.contactItem}>
+                <span className={styles.iconBox}><MapPin size={13} /></span>
+                <span>{isKhmer ? 'រាជធានីភ្នំពេញ, កម្ពុជា' : 'Phnom Penh, Cambodia'}</span>
               </li>
             </ul>
           </div>
 
-          {/* Technical Skills */}
-          <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarHeading}>{isKhmer ? 'ជំនាញបច្ចេកទេស' : 'SKILLS'}</h3>
-            
-            <div className={styles.skillBlock}>
-              <span className={styles.skillCat}>Backend</span>
-              <span className={styles.skillList}>Spring Boot, Java, REST APIs</span>
+          {/* Languages Section */}
+          <div className={styles.sideSection}>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ភាសា' : 'LANGUES'}</h3>
+            <div className={styles.langItem}>
+              <div className={styles.langHeader}>
+                <span>{isKhmer ? 'ភាសាខ្មែរ' : 'Khmer (Native)'}</span>
+              </div>
+              <div className={styles.barTrack}>
+                <div className={styles.barFill} style={{ width: '100%' }} />
+              </div>
             </div>
-
-            <div className={styles.skillBlock}>
-              <span className={styles.skillCat}>Desktop</span>
-              <span className={styles.skillList}>C# Windows Forms, ADO.NET</span>
-            </div>
-
-            <div className={styles.skillBlock}>
-              <span className={styles.skillCat}>Databases</span>
-              <span className={styles.skillList}>SQL Server, PostgreSQL, MySQL</span>
-            </div>
-
-            <div className={styles.skillBlock}>
-              <span className={styles.skillCat}>Tools</span>
-              <span className={styles.skillList}>Git, GitHub, VS Code, IntelliJ IDEA</span>
+            <div className={styles.langItem}>
+              <div className={styles.langHeader}>
+                <span>{isKhmer ? 'ភាសាអង់គ្លេស' : 'English (Working)'}</span>
+              </div>
+              <div className={styles.barTrack}>
+                <div className={styles.barFill} style={{ width: '75%' }} />
+              </div>
             </div>
           </div>
 
-          {/* Languages */}
-          <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarHeading}>{isKhmer ? 'ភាសា' : 'LANGUAGES'}</h3>
-            <ul className={styles.langList}>
-              <li>
-                <span className={styles.langName}>{isKhmer ? 'ភាសាខ្មែរ' : 'Khmer'}:</span>
-                <span className={styles.langLevel}>{isKhmer ? 'ភាសាកំណើត (Native)' : 'Native'}</span>
-              </li>
-              <li>
-                <span className={styles.langName}>{isKhmer ? 'ភាសាអង់គ្លេស' : 'English'}:</span>
-                <span className={styles.langLevel}>{isKhmer ? 'ទំនាក់ទំនងការងារ' : 'Working Proficiency'}</span>
-              </li>
+          {/* Technical Skills Section */}
+          <div className={styles.sideSection}>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ជំនាញបច្ចេកទេស' : 'COMPÉTENCES'}</h3>
+            <div className={styles.skillGroup}>
+              <h4 className={styles.skillLabel}>Backend</h4>
+              <p className={styles.skillDesc}>Java, Spring Boot, REST APIs</p>
+            </div>
+            <div className={styles.skillGroup}>
+              <h4 className={styles.skillLabel}>Desktop</h4>
+              <p className={styles.skillDesc}>C# Windows Forms, ADO.NET</p>
+            </div>
+            <div className={styles.skillGroup}>
+              <h4 className={styles.skillLabel}>Database</h4>
+              <p className={styles.skillDesc}>SQL Server, PostgreSQL, MySQL</p>
+            </div>
+            <div className={styles.skillGroup}>
+              <h4 className={styles.skillLabel}>Tools & IDEs</h4>
+              <p className={styles.skillDesc}>Git, GitHub, Docker, IntelliJ, VS Code</p>
+            </div>
+          </div>
+
+          {/* Soft Skills & Interests */}
+          <div className={styles.sideSection}>
+            <h3 className={styles.sideTitle}>{isKhmer ? 'ចំណុចខ្លាំង' : 'POINTS FORTS'}</h3>
+            <ul className={styles.sideBullets}>
+              <li>Clean Code & MVC</li>
+              <li>Problem Solving</li>
+              <li>Team Collaboration</li>
+              <li>Continuous Learning</li>
             </ul>
           </div>
         </aside>
 
-        {/* Right Column (Main Content) */}
+        {/* ================= RIGHT MAIN CONTENT ================= */}
         <main className={styles.mainContent}>
+          
           {/* Header */}
           <header className={styles.header}>
             <h1 className={styles.name}>{isKhmer ? 'យឹម លីម៉េង' : 'YIM LEMENG'}</h1>
-            <p className={styles.jobTitle}>
-              {isKhmer ? 'SOFTWARE & BACKEND DEVELOPER' : 'SOFTWARE & BACKEND DEVELOPER'}
-            </p>
-            <div className={styles.headerBar} />
+            <h2 className={styles.jobTitle}>
+              {isKhmer ? 'អ្នកអភិវឌ្ឍន៍ SOFTWARE & BACKEND DEVELOPER' : 'SOFTWARE & BACKEND DEVELOPER'}
+            </h2>
           </header>
 
-          {/* Professional Summary */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>
-              {isKhmer ? 'សេចក្តីសង្ខេបប្រវត្តិរូប (SUMMARY)' : 'PROFESSIONAL SUMMARY'}
-            </h2>
-            <p className={styles.summaryText}>
-              {isKhmer
-                ? 'និស្សិតឆ្នាំទី ៣ ផ្នែក IT ដែលមានមូលដ្ឋានគ្រឹះរឹងមាំលើការអភិវឌ្ឍប្រព័ន្ធ Backend (Java / Spring Boot) និងកម្មវិធី Desktop (C# Windows Forms)។ ផ្តោតលើការសរសេរកូដស្អាតមានរបៀប (Clean Code), REST APIs និងការគ្រប់គ្រង Database (SQL Server, PostgreSQL)។'
-                : 'Dedicated Software Developer with strong foundation in backend development (Spring Boot / Java) and desktop applications (C# Windows Forms). Focused on clean architecture, robust RESTful APIs, and reliable relational database management.'}
-            </p>
-          </section>
+          {/* Timeline Wrapper with Continuous Left Axis Line */}
+          <div className={styles.timelineBody}>
+            <div className={styles.verticalTrack} />
 
-          {/* Key Projects */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>
-              {isKhmer ? 'គម្រោងស្នាដៃសំខាន់ៗ (PROJECTS)' : 'KEY PROJECTS'}
-            </h2>
-
-            {/* Project 1 */}
-            <div className={styles.projectItem}>
-              <div className={styles.itemHeader}>
-                <span className={styles.itemTitle}>Bus Station Management System</span>
-                <span className={styles.itemTech}>C# WinForms | SQL Server</span>
+            {/* ===== FORMATION / EDUCATION ===== */}
+            <div className={styles.timelineSection}>
+              <div className={styles.sectionHeaderRow}>
+                <div className={styles.sectionDot} />
+                <h3 className={styles.sectionHeading}>{isKhmer ? 'ការអប់រំ និងបណ្តុះបណ្តាល' : 'FORMATION'}</h3>
               </div>
-              <ul className={styles.bulletList}>
-                <li>
-                  {isKhmer
-                    ? 'កម្មវិធី Desktop សម្រាប់កក់សំបុត្រ រៀបចំកាលវិភាគឡានក្រុង និងគ្រប់គ្រងអ្នកដំណើរ។'
-                    : 'Desktop app for bus ticketing, schedule dispatching, and passenger records management.'}
-                </li>
-                <li>
-                  {isKhmer
-                    ? 'មាន Dashboard គណនាប្រាក់ចំណូល ប្រវត្តិកក់សំបុត្រ និងស្ថិតិស្ថានីយជាក់ស្តែង។'
-                    : 'Features analytics dashboard calculating live station revenues and booking histories.'}
-                </li>
-              </ul>
+
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>
+                      {isKhmer ? 'បរិញ្ញាបត្រ វិទ្យាសាស្ត្រព័ត៌មានវិទ្យា (IT) - ឆ្នាំទី ៣' : 'Bachelor of Science in Information Technology (Year 3)'}
+                    </h4>
+                    <span className={styles.entryDate}>2024 – Present</span>
+                  </div>
+                  <p className={styles.entrySub}>
+                    {isKhmer ? 'សាកលវិទ្យាល័យ បៀលប្រាយ (BBU) — រាជធានីភ្នំពេញ' : 'Build Bright University — Phnom Penh, Cambodia'}
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>
+                      {isKhmer ? 'សញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)' : 'High School Diploma'}
+                    </h4>
+                    <span className={styles.entryDate}>2015 – 2018</span>
+                  </div>
+                  <p className={styles.entrySub}>
+                    {isKhmer ? 'វិទ្យាល័យ ព្រះមុនីវង្ស — ខេត្តបាត់ដំបង' : 'Preah Monivong High School — Battambang, Cambodia'}
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Project 2 */}
-            <div className={styles.projectItem}>
-              <div className={styles.itemHeader}>
-                <span className={styles.itemTitle}>Inventory Management System</span>
-                <span className={styles.itemTech}>C# WinForms | SQL Server</span>
+            {/* ===== EXPÉRIENCE / PROJECTS ===== */}
+            <div className={styles.timelineSection}>
+              <div className={styles.sectionHeaderRow}>
+                <div className={styles.sectionDot} />
+                <h3 className={styles.sectionHeading}>{isKhmer ? 'គម្រោងស្នាដៃសំខាន់ៗ' : 'PROJETS PRINCIPAUX'}</h3>
               </div>
-              <ul className={styles.bulletList}>
-                <li>
-                  {isKhmer
-                    ? 'កម្មវិធីគ្រប់គ្រងស្តុកទំនិញ តាមដានការនាំចូល (Stock In) និងនាំចេញ (Stock Out)។'
-                    : 'Inventory tracking software managing stock levels, low-stock alerts, and suppliers.'}
-                </li>
-                <li>
-                  {isKhmer
-                    ? 'ចាត់តាំងទំនិញតាមប្រភេទ និងបង្កើតរបាយការណ៍លក់ និងស្តុកលម្អិត។'
-                    : 'Categorized product catalog with automated sales and stock reporting.'}
-                </li>
-              </ul>
+
+              {/* Project 1 */}
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>Bus Station Management System</h4>
+                    <span className={styles.techBadge}>C# WinForms | SQL Server</span>
+                  </div>
+                  <p className={styles.entrySub}>Desktop Application</p>
+                  <ul className={styles.bulletList}>
+                    <li>
+                      {isKhmer 
+                        ? 'កម្មវិធី Desktop សម្រាប់កក់សំបុត្រ រៀបចំកាលវិភាគឡានក្រុង និងគ្រប់គ្រងអ្នកដំណើរ។'
+                        : 'Full desktop software managing ticket bookings, bus schedules, and passenger records.'}
+                    </li>
+                    <li>
+                      {isKhmer
+                        ? 'មាន Dashboard គណនាប្រាក់ចំណូល ប្រវត្តិកក់សំបុត្រ និងស្ថិតិស្ថានីយជាក់ស្តែង។'
+                        : 'Interactive station analytics dashboard tracking revenue and real-time bookings.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Project 2 */}
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>Inventory Management System</h4>
+                    <span className={styles.techBadge}>C# WinForms | SQL Server</span>
+                  </div>
+                  <p className={styles.entrySub}>Desktop Application</p>
+                  <ul className={styles.bulletList}>
+                    <li>
+                      {isKhmer
+                        ? 'កម្មវិធីគ្រប់គ្រងស្តុកទំនិញ តាមដានការនាំចូល (Stock In) និងនាំចេញ (Stock Out)។'
+                        : 'Inventory tracking desktop software managing stock levels, low-stock alerts, and orders.'}
+                    </li>
+                    <li>
+                      {isKhmer
+                        ? 'ចាត់តាំងទំនិញតាមប្រភេទ និងបង្កើតរបាយការណ៍លក់ និងស្តុកលម្អិត។'
+                        : 'Categorized catalog system with automated reporting and database transactions.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Project 3 */}
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>Customer Management REST API</h4>
+                    <span className={styles.techBadge}>Spring Boot | PostgreSQL</span>
+                  </div>
+                  <p className={styles.entrySub}>Backend Web Service</p>
+                  <ul className={styles.bulletList}>
+                    <li>
+                      {isKhmer
+                        ? 'សេវាកម្ម Backend API សម្រាប់គ្រប់គ្រងទិន្នន័យអតិថិជនជាមួយ MVC Architecture និង DTOs។'
+                        : 'Robust RESTful backend service with MVC architecture, DTO mapping, and Spring Validation.'}
+                    </li>
+                    <li>
+                      {isKhmer
+                        ? 'ប្រព័ន្ធ Global Exception Handling និងការរៀបចំ Pagination & Sorting មានប្រសិទ្ធភាព។'
+                        : 'Global Exception Handling with custom error responses and optimized query pagination.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Project 3 */}
-            <div className={styles.projectItem}>
-              <div className={styles.itemHeader}>
-                <span className={styles.itemTitle}>Customer Management REST API</span>
-                <span className={styles.itemTech}>Spring Boot | PostgreSQL</span>
+            {/* ===== WORK EXPERIENCE ===== */}
+            <div className={styles.timelineSection}>
+              <div className={styles.sectionHeaderRow}>
+                <div className={styles.sectionDot} />
+                <h3 className={styles.sectionHeading}>{isKhmer ? 'បទពិសោធន៍ការងារ' : 'EXPÉRIENCE PROFESSIONNELLE'}</h3>
               </div>
-              <ul className={styles.bulletList}>
-                <li>
-                  {isKhmer
-                    ? 'សេវាកម្ម Backend API សម្រាប់គ្រប់គ្រងទិន្នន័យអតិថិជនជាមួយ MVC Architecture និង DTOs។'
-                    : 'Backend API service with full CRUD operations, DTO mapping, and Spring Validation.'}
-                </li>
-                <li>
-                  {isKhmer
-                    ? 'ប្រព័ន្ធ Global Exception Handling និងការរៀបចំ Pagination & Sorting មានប្រសិទ្ធភាព។'
-                    : 'Engineered custom global exception handlers and optimized database pagination.'}
-                </li>
-              </ul>
-            </div>
-          </section>
 
-          {/* Education */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>
-              {isKhmer ? 'ការអប់រំ (EDUCATION)' : 'EDUCATION'}
-            </h2>
-            
-            <div className={styles.eduItem}>
-              <div className={styles.itemHeader}>
-                <span className={styles.itemTitle}>
-                  {isKhmer ? 'បរិញ្ញាបត្រ វិទ្យាសាស្ត្រព័ត៌មានវិទ្យា (IT) - ឆ្នាំទី ៣' : 'Bachelor of Science in Information Technology (Year 3)'}
-                </span>
-                <span className={styles.itemDate}>2024 - Present</span>
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'អ្នកបើកបរ (Driver)' : 'Driver'}</h4>
+                    <span className={styles.entryDate}>2023 – 2024</span>
+                  </div>
+                  <p className={styles.entrySub}>Nham 24 Express — Phnom Penh</p>
+                </div>
               </div>
-              <p className={styles.institution}>
-                {isKhmer ? 'សាកលវិទ្យាល័យ បៀលប្រាយ (BBU) - ភ្នំពេញ' : 'Build Bright University - Phnom Penh, Cambodia'}
-              </p>
+
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកដឹកជញ្ជូន (Delivery Driver)' : 'Delivery Driver'}</h4>
+                    <span className={styles.entryDate}>2020 – 2023</span>
+                  </div>
+                  <p className={styles.entrySub}>J&T Express — Phnom Penh</p>
+                </div>
+              </div>
+
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកទទួលភ្ញៀវ (Receptionist)' : 'Receptionist'}</h4>
+                    <span className={styles.entryDate}>2019 – 2020</span>
+                  </div>
+                  <p className={styles.entrySub}>Jasmine Hotel — Phnom Penh</p>
+                </div>
+              </div>
             </div>
 
-            <div className={styles.eduItem}>
-              <div className={styles.itemHeader}>
-                <span className={styles.itemTitle}>
-                  {isKhmer ? 'សញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)' : 'High School Diploma'}
-                </span>
-                <span className={styles.itemDate}>2015 - 2018</span>
-              </div>
-              <p className={styles.institution}>
-                {isKhmer ? 'វិទ្យាល័យ ព្រះមុនីវង្ស - បាត់ដំបង' : 'Preah Monivong High School - Battambang, Cambodia'}
-              </p>
-            </div>
-          </section>
-
-          {/* Work Experience */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>
-              {isKhmer ? 'បទពិសោធន៍ការងារ (EXPERIENCE)' : 'WORK EXPERIENCE'}
-            </h2>
-            
-            <div className={styles.workRow}>
-              <div className={styles.workEntry}>
-                <span className={styles.workRole}>{isKhmer ? 'អ្នកបើកបរ' : 'Driver'}</span>
-                <span className={styles.workOrg}>Nham 24 Express (2023 - 2024)</span>
-              </div>
-              <div className={styles.workEntry}>
-                <span className={styles.workRole}>{isKhmer ? 'បុគ្គលិកដឹកជញ្ជូន' : 'Delivery Driver'}</span>
-                <span className={styles.workOrg}>J&T Express (2020 - 2023)</span>
-              </div>
-              <div className={styles.workEntry}>
-                <span className={styles.workRole}>{isKhmer ? 'បុគ្គលិកទទួលភ្ញៀវ' : 'Receptionist'}</span>
-                <span className={styles.workOrg}>Jasmine Hotel (2019 - 2020)</span>
-              </div>
-            </div>
-          </section>
+          </div>
         </main>
       </div>
     </div>
