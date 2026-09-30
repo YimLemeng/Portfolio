@@ -282,7 +282,7 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>Customer Management REST API</h4>
+                    <h4 className={styles.entryRole}>Order Management System REST API</h4>
                     <span className={styles.techBadge}>Spring Boot | PostgreSQL</span>
                   </div>
                   <p className={styles.entrySub}>
@@ -291,18 +291,18 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                   <ul className={styles.bulletList}>
                     <li>
                       {isKhmer
-                        ? 'បង្កើត RESTful API តាមស្តង់ដារ Layered Architecture ដោយប្រើ DTO Pattern និង Spring Data JPA / Hibernate។'
-                        : 'Architected robust RESTful API following Layered Architecture, Data Transfer Objects (DTOs), and Spring Data JPA.'}
+                        ? 'បង្កើត RESTful API តាមស្តង់ដារ Layered Architecture ដោយប្រើ DTO Pattern និង JPA Relationships (Customer, Order, Product)។'
+                        : 'Architected robust RESTful API with Layered Architecture, DTO pattern, and JPA relationships (Customer, Order, Product).'}
                     </li>
                     <li>
                       {isKhmer
-                        ? 'រៀបចំប្រព័ន្ធ Global Exception Handling និង Spring Validation សម្រាប់ការពារ និងឆ្លើយតបកំហុសបានច្បាស់លាស់។'
-                        : 'Implemented Global Exception Handling with custom error responses and comprehensive request payload validation.'}
+                        ? 'រៀបចំប្រព័ន្ធ Transactional (@Transactional) គណនាតម្លៃ និងកាត់ស្តុកទំនិញស្វ័យប្រវត្តិ ព្រមទាំងបង្វិលស្តុកវិញពេល Cancelled។'
+                        : 'Implemented @Transactional order placement logic with automated inventory stock validation and status lifecycle.'}
                     </li>
                     <li>
                       {isKhmer
-                        ? 'គាំទ្រ Dynamic Pagination និង Multi-field Sorting ជួយបង្កើនល្បឿនក្នុងការទាញយកទិន្នន័យពី PostgreSQL។'
-                        : 'Optimized PostgreSQL data retrieval with dynamic query pagination, multi-column sorting, and Swagger documentation.'}
+                        ? 'រៀបចំ Global Exception Handling, Spring Validation, Dynamic Pagination និង Swagger API Documentation។'
+                        : 'Configured Global Exception Handling with custom error responses, Spring validation, and Swagger API documentation.'}
                     </li>
                   </ul>
                 </div>

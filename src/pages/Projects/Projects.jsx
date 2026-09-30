@@ -9,6 +9,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import styles from './Projects.module.css';
 
 const PROJECT_IMAGES = {
+  'order-api': projectApi,
   'customer-api': projectApi,
   'employee-system': projectEmployee,
   'bus-station': projectBus,
