@@ -70,7 +70,7 @@ export const translations = {
         {
           id: 'order-api',
           title: 'Order Management System REST API',
-          description: 'A production-ready Enterprise REST API for managing customer profiles, product catalogs, and order transactions. Built using Spring Boot 3, Java 17, and PostgreSQL with Clean Layered Architecture and React web dashboard.',
+          description: 'A production-ready REST API for managing customer profiles, product catalogs, and order transactions. Built using Spring Boot 3, Java 21, and PostgreSQL with Clean Layered Architecture and React web dashboard.',
           features: [
             'Clean Layered Architecture with Controller, Service, and Repository separation',
             'DTO Pattern for secure Request/Response mapping and data encapsulation',
@@ -260,7 +260,7 @@ export const translations = {
         {
           id: 'order-api',
           title: 'Order Management System REST API',
-          description: 'ប្រព័ន្ធ Backend REST API ដ៏រឹងមាំសម្រាប់គ្រប់គ្រងទិន្នន័យអតិថិជន ទំនិញ និងប្រតិបត្តិការបញ្ជាទិញ (Orders)។ បង្កើតឡើងដោយប្រើ Spring Boot 3, Java 17, PostgreSQL តាមស្តង់ដារ Layered Architecture និងភ្ជាប់ជាមួយផ្ទាំង React Web Dashboard។',
+          description: 'ប្រព័ន្ធ Backend REST API ដ៏រឹងមាំសម្រាប់គ្រប់គ្រងទិន្នន័យអតិថិជន ទំនិញ និងប្រតិបត្តិការបញ្ជាទិញ (Orders)។ បង្កើតឡើងដោយប្រើ Spring Boot 3, Java 21, PostgreSQL តាមស្តង់ដារ Layered Architecture និងភ្ជាប់ជាមួយផ្ទាំង React Web Dashboard។',
           features: [
             'ស្ថាបត្យកម្ម Clean Layered Architecture បែងចែក Controller, Service និង Repository ច្បាស់លាស់',
             'ការប្រើប្រាស់ DTO Pattern ដើម្បីគ្រប់គ្រង Request/Response និងសុវត្ថិភាពទិន្នន័យ',
