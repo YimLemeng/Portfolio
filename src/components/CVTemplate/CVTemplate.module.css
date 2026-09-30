@@ -120,9 +120,20 @@
   flex-shrink: 0;
 }
 
+.contactLink {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
 .emailText {
   word-break: break-all;
   font-size: 0.63rem;
+}
+
+.portfolioText {
+  word-break: break-all;
+  font-size: 0.58rem;
+  line-height: 1.25;
 }
 
 /* Personal Info */

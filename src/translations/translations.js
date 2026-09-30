@@ -21,7 +21,7 @@ export const translations = {
       downloadCv: 'Download CV',
       contactMe: 'Contact Me',
       cvFileName: 'Yim_Lemeng_Resume_EN.txt',
-      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nPROJECTS:\n1. Bus Station Management System (C# Windows Forms, SQL Server)\n2. Inventory Management System (C# Windows Forms, SQL Server)\n3. Customer Management REST API (Spring Boot, PostgreSQL)\n4. Employee Management System (Spring Boot, React JS, PostgreSQL)\n\nEDUCATION:\nBachelor of Science in Information Technology (Year 3) - Build Bright University.`,
+      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nPortfolio: https://yimlemeng-portfolio.yimlemeng069.workers.dev\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nPROJECTS:\n1. Bus Station Management System (C# Windows Forms, SQL Server)\n2. Inventory Management System (C# Windows Forms, SQL Server)\n3. Order Management System REST API (Spring Boot, PostgreSQL)\n4. Employee Management System (Spring Boot, React JS, PostgreSQL)\n\nEDUCATION:\nBachelor of Science in Information Technology (Year 3) - Build Bright University.`,
     },
     about: {
       subtitle: 'My Journey',
@@ -211,7 +211,7 @@ export const translations = {
       downloadCv: 'ទាញយក CV',
       contactMe: 'ទាក់ទងមកខ្ញុំ',
       cvFileName: 'Yim_Lemeng_Resume_KH.txt',
-      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nទំនាក់ទំនង: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\n\nជំនាញបច្ចេកទេស:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- ឧបករណ៍ជំនួយ: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nគម្រោងស្នាដៃ:\n1. Bus Station Management System (C# Windows Forms, SQL Server)\n2. Inventory Management System (C# Windows Forms, SQL Server)\n3. Customer Management REST API (Spring Boot, PostgreSQL)\n4. Employee Management System (Spring Boot, React JS, PostgreSQL)\n\nការអប់រំ:\nបរិញ្ញាបត្របច្ចេកវិទ្យាព័ត៌មានវិទ្យា (ឆ្នាំទី ៣) - សាកលវិទ្យាល័យ បៀលប្រាយ (BBU)`,
+      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nទំនាក់ទំនង: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nPortfolio: https://yimlemeng-portfolio.yimlemeng069.workers.dev\n\nជំនាញបច្ចេកទេស:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- ឧបករណ៍ជំនួយ: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nគម្រោងស្នាដៃ:\n1. Bus Station Management System (C# Windows Forms, SQL Server)\n2. Inventory Management System (C# Windows Forms, SQL Server)\n3. Order Management System REST API (Spring Boot, PostgreSQL)\n4. Employee Management System (Spring Boot, React JS, PostgreSQL)\n\nការអប់រំ:\nបរិញ្ញាបត្របច្ចេកវិទ្យាព័ត៌មានវិទ្យា (ឆ្នាំទី ៣) - សាកលវិទ្យាល័យ បៀលប្រាយ (BBU)`,
     },
     about: {
       subtitle: 'ដំណើរការអភិវឌ្ឍន៍',

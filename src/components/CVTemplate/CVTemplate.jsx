@@ -34,7 +34,25 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
               </li>
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><Github size={13} /></span>
-                <span>github.com/YimLemeng</span>
+                <a
+                  href="https://github.com/YimLemeng"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.contactLink}
+                >
+                  github.com/YimLemeng
+                </a>
+              </li>
+              <li className={styles.contactItem}>
+                <span className={styles.iconBox}><Globe size={13} /></span>
+                <a
+                  href="https://yimlemeng-portfolio.yimlemeng069.workers.dev"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${styles.contactLink} ${styles.portfolioText}`}
+                >
+                  yimlemeng-portfolio.yimlemeng069.workers.dev
+                </a>
               </li>
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><MapPin size={13} /></span>
