@@ -403,6 +403,11 @@
   margin: 0;
 }
 
+.projectTitleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
 .entryDate {
   font-size: 0.63rem;
   font-style: italic;

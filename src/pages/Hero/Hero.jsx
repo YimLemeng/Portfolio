@@ -103,6 +103,36 @@ export default function Hero() {
       const imgData = canvas.toDataURL('image/jpeg', 1.0);
       // Full bleed 210mm x 297mm covers 100% of A4 page with zero cutoffs
       pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+
+      // Add interactive clickable link annotations for all links inside the CV
+      const containerRect = element.getBoundingClientRect();
+      const links = element.querySelectorAll('a[href]');
+
+      links.forEach((a) => {
+        const href = a.getAttribute('href');
+        if (!href) return;
+
+        // getClientRects handles both single-line and multi-line wrapped links
+        const rects = a.getClientRects();
+        const clientRects = rects.length > 0 ? Array.from(rects) : [a.getBoundingClientRect()];
+
+        clientRects.forEach((rect) => {
+          if (rect.width === 0 || rect.height === 0) return;
+
+          const relX = rect.left - containerRect.left;
+          const relY = rect.top - containerRect.top;
+          const relW = rect.width;
+          const relH = rect.height;
+
+          const pdfX = (relX / containerRect.width) * 210;
+          const pdfY = (relY / containerRect.height) * 297;
+          const pdfW = (relW / containerRect.width) * 210;
+          const pdfH = (relH / containerRect.height) * 297;
+
+          pdf.link(pdfX, pdfY, pdfW, pdfH, { url: href });
+        });
+      });
+
       pdf.save(fileName);
     } catch (err) {
       console.error('Failed to generate PDF:', err);

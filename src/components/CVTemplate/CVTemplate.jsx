@@ -26,11 +26,11 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><Phone size={13} /></span>
-                <span>+855 (69) 232-123</span>
+                <a href="tel:+85569232123" className={styles.contactLink}>+855 (69) 232-123</a>
               </li>
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><Mail size={13} /></span>
-                <span className={styles.emailText}>yimlemeng.ym@gmail.com</span>
+                <a href="mailto:yimlemeng.ym@gmail.com" className={`${styles.contactLink} ${styles.emailText}`}>yimlemeng.ym@gmail.com</a>
               </li>
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><Github size={13} /></span>
@@ -238,7 +238,16 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>Bus Station Management System</h4>
+                    <h4 className={styles.entryRole}>
+                      <a
+                        href="https://github.com/YimLemeng/Bus_station_System"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.projectTitleLink}
+                      >
+                        Bus Station Management System
+                      </a>
+                    </h4>
                     <span className={styles.techBadge}>C# WinForms | SQL Server</span>
                   </div>
                   <p className={styles.entrySub}>
@@ -269,7 +278,16 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>Inventory Management System</h4>
+                    <h4 className={styles.entryRole}>
+                      <a
+                        href="https://github.com/YimLemeng/Inventory-System"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.projectTitleLink}
+                      >
+                        Inventory Management System
+                      </a>
+                    </h4>
                     <span className={styles.techBadge}>C# WinForms | SQL Server</span>
                   </div>
                   <p className={styles.entrySub}>
@@ -300,7 +318,16 @@ const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>Order Management System REST API</h4>
+                    <h4 className={styles.entryRole}>
+                      <a
+                        href="https://mini-order-management-web.yimlemeng069.workers.dev/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.projectTitleLink}
+                      >
+                        Order Management System REST API
+                      </a>
+                    </h4>
                     <span className={styles.techBadge}>Spring Boot | PostgreSQL</span>
                   </div>
                   <p className={styles.entrySub}>
