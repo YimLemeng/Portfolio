@@ -152,7 +152,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className={`${styles.hero} section-padding`}>
+    <section id="home" className={styles.hero}>
       {/* Hidden CV template used for generating PDF */}
       <CVTemplate ref={cvRef} language={language} />
 
