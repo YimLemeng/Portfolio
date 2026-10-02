@@ -6,7 +6,6 @@
 [![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Nginx](https://img.shields.io/badge/Nginx-Production-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://nginx.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 <p align="center">
   A modern, high-performance, and fully responsive Developer Portfolio website built for <strong>Yim Lemeng</strong>, a Software Developer specializing in <strong>Java / Spring Boot</strong>, <strong>C# Windows Forms</strong>, <strong>RESTful APIs</strong>, and <strong>Relational Databases</strong>.
