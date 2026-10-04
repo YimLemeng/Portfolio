@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Terminal, Loader2 } from 'lucide-react';
+import { ArrowRight, Terminal, Eye } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import CVTemplate from '../../components/CVTemplate/CVTemplate';
+import CVModal from '../../components/CVModal/CVModal';
 import profilePhoto from '../../assets/Meng.png';
 import styles from './Hero.module.css';
 
@@ -17,6 +18,7 @@ export default function Hero() {
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [isCvModalOpen, setIsCvModalOpen] = useState(false);
   const cvRef = useRef(null);
 
   useEffect(() => {
@@ -53,7 +55,7 @@ export default function Hero() {
     e.preventDefault();
     const el = document.getElementById('contact');
     if (el) {
-      const top = el.offsetTop - 70;
+      const top = el.getBoundingClientRect().top + window.scrollY - 70;
       window.scrollTo({ top, behavior: 'smooth' });
       window.history.pushState(null, '', '#contact');
     }
@@ -184,20 +186,12 @@ export default function Hero() {
 
           <div className={styles.ctaGroup}>
             <button 
-              onClick={handleDownloadCV} 
-              disabled={isGeneratingPdf} 
+              type="button"
+              onClick={() => setIsCvModalOpen(true)}
               className={styles.btnPrimary}
-              title="Download Professional PDF Resume"
+              title={language === 'km' ? 'មើលប្រវត្តិរូបសង្ខេប (CV)' : 'View Curriculum Vitae (CV)'}
             >
-              {isGeneratingPdf ? (
-                <>
-                  {language === 'km' ? 'កំពុងបង្កើត PDF...' : 'Generating PDF...'} <Loader2 className={styles.spinner} size={18} />
-                </>
-              ) : (
-                <>
-                  {t.hero.downloadCv} (PDF) <Download size={18} />
-                </>
-              )}
+              {t.hero.viewCv} <Eye size={18} />
             </button>
             <a href="#contact" onClick={handleContactScroll} className={styles.btnSecondary}>
               {t.hero.contactMe} <ArrowRight size={18} />
@@ -219,6 +213,14 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {/* Interactive CV Viewer Modal */}
+      <CVModal 
+        isOpen={isCvModalOpen} 
+        onClose={() => setIsCvModalOpen(false)} 
+        onDownloadPdf={handleDownloadCV}
+        isGeneratingPdf={isGeneratingPdf}
+      />
     </section>
   );
 }

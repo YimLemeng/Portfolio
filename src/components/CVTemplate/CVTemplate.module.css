@@ -8,6 +8,18 @@
   z-index: -999;
 }
 
+/* Visible container for in-modal preview */
+.cvPreviewWrapper {
+  width: 740px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.45);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
 .cvContainer {
   width: 740px;
   height: 1047px;

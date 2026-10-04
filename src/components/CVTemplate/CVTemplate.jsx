@@ -4,11 +4,11 @@ import { Github } from '../Icons/Icons';
 import profilePhoto from '../../assets/Meng.png';
 import styles from './CVTemplate.module.css';
 
-const CVTemplate = forwardRef(({ language = 'en' }, ref) => {
+const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
   const isKhmer = language === 'km';
 
   return (
-    <div className={styles.cvWrapper}>
+    <div className={isPreview ? styles.cvPreviewWrapper : styles.cvWrapper}>
       <div ref={ref} className={`${styles.cvContainer} ${isKhmer ? styles.khmerFont : ''}`}>
         
         {/* ================= LEFT SIDEBAR ================= */}

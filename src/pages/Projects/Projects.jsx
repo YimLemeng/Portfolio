@@ -4,15 +4,15 @@ import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import projectInventory from '../../assets/picInventory.png';
 import projectBus from '../../assets/bus_station.png';
 import projectOrderDashboard from '../../assets/order_dashboard.png';
-import projectApi from '../../assets/project_api.jpg';
-import projectEmployee from '../../assets/project_employee.jpg';
+import projectSchoolMs from '../../assets/school_ms.png';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Projects.module.css';
 
 const PROJECT_IMAGES = {
   'order-api': projectOrderDashboard,
   'customer-api': projectOrderDashboard,
-  'employee-system': projectEmployee,
+  'school-system': projectSchoolMs,
+  'employee-system': projectSchoolMs,
   'bus-station': projectBus,
   'inventory-system': projectInventory,
 };

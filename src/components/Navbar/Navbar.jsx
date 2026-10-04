@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -6,10 +6,14 @@ import LanguageToggle from '../LanguageToggle/LanguageToggle';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Navbar.module.css';
 
+const SECTION_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+
 export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const isClickScrolling = useRef(false);
+  const clickTimeoutRef = useRef(null);
   const { t } = useLanguage();
 
   const navItems = [
@@ -25,38 +29,59 @@ export default function Navbar({ theme, toggleTheme }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Simple, robust scroll spy logic
-      const scrollPosition = window.scrollY + 150;
-      for (const item of navItems) {
-        const el = document.getElementById(item.id);
+      // If user clicked a link, don't let scroll spy overwrite the active section during smooth scroll
+      if (isClickScrolling.current) return;
+
+      // Bottom of page detection (Contact is the last section)
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
+      if (isBottom) {
+        setActiveSection('contact');
+        return;
+      }
+
+      // Robust top-crossing scroll spy using viewport-relative bounding rect
+      const headerOffset = 100;
+      let current = SECTION_IDS[0];
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id);
         if (el) {
-          const { offsetTop, offsetHeight } = el;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(item.id);
-            break;
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= headerOffset) {
+            current = id;
           }
         }
       }
+      setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
   }, []);
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
     setIsOpen(false);
+    setActiveSection(id);
+
+    isClickScrolling.current = true;
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickScrolling.current = false;
+    }, 800);
+
     const el = document.getElementById(id);
     if (el) {
-      const top = el.offsetTop - 70; // Offset header height
+      const top = el.getBoundingClientRect().top + window.scrollY - 70;
       window.scrollTo({
         top,
         behavior: 'smooth',
       });
       window.history.pushState(null, '', `#${id}`);
-      setActiveSection(id);
     }
   };
 
