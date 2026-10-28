@@ -108,7 +108,7 @@ export const translations = {
           ],
           tags: ['Spring Boot', 'React JS', 'PostgreSQL', 'REST API', 'CSS Modules'],
           githubUrl: 'https://github.com/YimLemeng/School-management-system.git',
-          demoUrl: 'https://github.com/YimLemeng/School-management-system-web.git',
+          demoUrl: 'https://school-management-system-web.yimlemeng.workers.dev',
         },
         {
           id: 'bus-station',
@@ -310,7 +310,7 @@ export const translations = {
           ],
           tags: ['Spring Boot', 'React JS', 'PostgreSQL', 'REST API', 'CSS Modules'],
           githubUrl: 'https://github.com/YimLemeng/School-management-system.git',
-          demoUrl: 'https://github.com/YimLemeng/School-management-system-web.git',
+          demoUrl: 'https://school-management-system-web.yimlemeng.workers.dev',
         },
         {
           id: 'bus-station',
