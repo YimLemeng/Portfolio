@@ -49,7 +49,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                   href="https://yimlemeng-portfolio.yimlemeng.workers.dev"
                   target="_blank"
                   rel="noreferrer"
-                  className={`${styles.contactLink} ${styles.portfolioText}`}
+                  className={styles.contactLink}
                 >
                   Yimlemeng-Portfolio
                 </a>
@@ -186,7 +186,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
                     <h4 className={styles.entryRole}>
-                      {isKhmer ? 'បរិញ្ញាបត្រ វិទ្យាសាស្ត្រព័ត៌មានវិទ្យា (IT) — ឆ្នាំទី ៣(ឆមាសទី ២)' : 'Bachelor of Science in Information Technology (Year 3 – Semester 2)'}
+                      {isKhmer ? 'បរិញ្ញាបត្រ វិទ្យាសាស្ត្រព័ត៌មានវិទ្យា (IT) — ឆ្នាំទី ៣(ឆមាសទី ២)' : 'Bachelor of Science in Information Technology (Year 3 Semester 2)'}
                     </h4>
                     <span className={styles.entryDate}>2024 – Present</span>
                   </div>
