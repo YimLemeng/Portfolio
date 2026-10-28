@@ -46,12 +46,12 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
               <li className={styles.contactItem}>
                 <span className={styles.iconBox}><Globe size={13} /></span>
                 <a
-                  href="https://yimlemeng-portfolio.yimlemeng069.workers.dev"
+                  href="https://yimlemeng-portfolio.yimlemeng.workers.dev"
                   target="_blank"
                   rel="noreferrer"
                   className={`${styles.contactLink} ${styles.portfolioText}`}
                 >
-                  yimlemeng-portfolio.yimlemeng069.workers.dev
+                  Yimlemeng-Portfolio
                 </a>
               </li>
               <li className={styles.contactItem}>
@@ -87,7 +87,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
               </div>
               <div className={styles.personalRow}>
                 <span className={styles.personalLabel}>{isKhmer ? 'កម្ពស់' : 'Height'}:</span>
-                <span className={styles.personalValue}>1.65 m</span>
+                <span className={styles.personalValue}>1.60 m</span>
               </div>
               <div className={styles.personalPlace}>
                 <span className={styles.personalLabel}>{isKhmer ? 'ទីកន្លែងកំណើត' : 'Place of Birth'}:</span>
@@ -165,8 +165,8 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
             </h2>
             <p className={styles.summaryText}>
               {isKhmer
-                ? 'និស្សិតឆ្នាំទី ៣ ផ្នែក IT ដែលមានចំណង់ចំណូលចិត្តខ្ពស់លើការអភិវឌ្ឍ Backend និង Desktop Applications។ មានមូលដ្ឋានគ្រឹះរឹងមាំលើ Java (Spring Boot) និង C# (.NET WinForms) ជាមួយបទពិសោធន៍ជាក់ស្តែងក្នុងការរចនា Database (SQL Server, PostgreSQL) និង RESTful APIs។ ត្រៀមខ្លួនជាស្រេចក្នុងការចូលរួមចំណែកបង្កើត Software ប្រកបដោយគុណភាពខ្ពស់។'
-                : 'Dedicated Year 3 IT student specializing in Backend and Desktop Application Development. Strong practical foundation in Java (Spring Boot), C# (.NET WinForms), and relational databases (SQL Server, PostgreSQL). Passionate about building clean, well-architected software solutions and eager to contribute to innovative engineering teams.'}
+                ? 'និស្សិតឆ្នាំទី ៣(ឆមាសទី ២) ផ្នែក IT ដែលមានចំណង់ចំណូលចិត្តខ្ពស់លើការអភិវឌ្ឍ Backend និង Desktop Applications។ មានមូលដ្ឋានគ្រឹះរឹងមាំលើ Java (Spring Boot) និង C# (.NET WinForms) ជាមួយបទពិសោធន៍ជាក់ស្តែងក្នុងការរចនា Database (SQL Server, PostgreSQL) និង RESTful APIs។ ត្រៀមខ្លួនជាស្រេចក្នុងការចូលរួមចំណែកបង្កើត Software ប្រកបដោយគុណភាពខ្ពស់។'
+                : 'Dedicated Year 3(semester 2) IT student specializing in Backend and Desktop Application Development. Strong practical foundation in Java (Spring Boot), C# (.NET WinForms), and relational databases (SQL Server, PostgreSQL). Passionate about building clean, well-architected software solutions and eager to contribute to innovative engineering teams.'}
             </p>
           </header>
 
@@ -186,7 +186,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
                     <h4 className={styles.entryRole}>
-                      {isKhmer ? 'បរិញ្ញាបត្រ វិទ្យាសាស្ត្រព័ត៌មានវិទ្យា (IT) — ឆ្នាំទី ៣' : 'Bachelor of Science in Information Technology (Year 3)'}
+                      {isKhmer ? 'បរិញ្ញាបត្រ វិទ្យាសាស្ត្រព័ត៌មានវិទ្យា (IT) — ឆ្នាំទី ៣(ឆមាសទី ២)' : 'Bachelor of Science in Information Technology (Year 3 – Semester 2)'}
                     </h4>
                     <span className={styles.entryDate}>2024 – Present</span>
                   </div>
