@@ -30,6 +30,7 @@ const SKILLS_BY_CATEGORY = {
   database: [
     { name: 'SQL Server', icon: Database },
     { name: 'PostgreSQL', icon: Database },
+    { name: 'Flyway', icon: Database },
   ],
   tools: [
     { name: 'Git', icon: GitBranch },

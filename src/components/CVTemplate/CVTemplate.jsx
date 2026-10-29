@@ -134,7 +134,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
             </div>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Database</h4>
-              <p className={styles.skillDesc}>SQL Server, PostgreSQL</p>
+              <p className={styles.skillDesc}>SQL Server, PostgreSQL, Flyway</p>
             </div>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Tools & DevOps</h4>
@@ -233,14 +233,74 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 <h3 className={styles.sectionHeading}>{isKhmer ? 'គម្រោងស្នាដៃសំខាន់ៗ' : 'FEATURED PROJECTS'}</h3>
               </div>
 
-              {/* Project 1 */}
+              {/* Project 1: School Management System */}
               <div className={styles.entryBlock}>
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
                     <h4 className={styles.entryRole}>
                       <a
-                        href="https://github.com/YimLemeng/Bus_station_System"
+                        href="https://school-management-system-web.yimlemeng.workers.dev"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.projectTitleLink}
+                      >
+                        School Management System
+                      </a>
+                    </h4>
+                    <span className={styles.techBadge}>Spring Boot | React JS</span>
+                  </div>
+                  <p className={styles.entrySub}>
+                    {isKhmer ? 'ប្រព័ន្ធគ្រប់គ្រងសាលារៀន Web Management System' : 'Web-Based Academic Management System'}
+                  </p>
+                  <ul className={styles.bulletList}>
+                    <li>
+                      {isKhmer 
+                        ? 'បង្កើតប្រព័ន្ធគ្រប់គ្រងសាលារៀនជាមួយ JWT, Spring Security, ការចុះឈ្មោះចូលរៀន, PostgreSQL និង Flyway។'
+                        : 'Developed academic backend portal with role-based access control (JWT/Spring Security), course enrollments, PostgreSQL, and Flyway.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Project 2: Banking System */}
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>
+                      <a
+                        href="https://banking-system.yimlemeng.workers.dev"
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.projectTitleLink}
+                      >
+                        Banking System
+                      </a>
+                    </h4>
+                    <span className={styles.techBadge}>Spring Boot | React JS</span>
+                  </div>
+                  <p className={styles.entrySub}>
+                    {isKhmer ? 'ប្រព័ន្ធគ្រប់គ្រងធនាគារ Core Banking Web Application' : 'Core Banking Web Application'}
+                  </p>
+                  <ul className={styles.bulletList}>
+                    <li>
+                      {isKhmer 
+                        ? 'បង្កើតប្រព័ន្ធ Core Banking ជាមួយ JWT, Spring Security, ប្រតិបត្តិការផ្ទេរ/ដក/ដាក់ប្រាក់ Real-time, PostgreSQL និង Flyway។'
+                        : 'Architected core banking backend with role-based security (JWT), real-time transaction processing, PostgreSQL, and Flyway.'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Project 3: Bus Station Management System */}
+              <div className={styles.entryBlock}>
+                <div className={styles.entryDot} />
+                <div className={styles.entryContent}>
+                  <div className={styles.entryTopRow}>
+                    <h4 className={styles.entryRole}>
+                      <a
+                        href="https://drive.google.com/file/d/1Tpz5VcIkaT9X9KGRHU5OZ9Yw9tbbIuOa/view?usp=sharing"
                         target="_blank"
                         rel="noreferrer"
                         className={styles.projectTitleLink}
@@ -256,98 +316,8 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                   <ul className={styles.bulletList}>
                     <li>
                       {isKhmer 
-                        ? 'បង្កើតប្រព័ន្ធគ្រប់គ្រងការកក់សំបុត្រ រៀបចំកៅអីអ្នកដំណើរ និងកាលវិភាគចេញដំណើរប្រកបដោយប្រសិទ្ធភាព។'
-                        : 'Engineered a comprehensive desktop management system handling seat bookings, bus schedules, and passenger check-ins.'}
-                    </li>
-                    <li>
-                      {isKhmer
-                        ? 'រចនា Database លើ SQL Server ដោយប្រើ Stored Procedures និង Database Transactions ដើម្បីធានាសុក្រឹតភាពទិន្នន័យ។'
-                        : 'Designed normalized SQL Server database with transactional integrity, stored procedures, and concurrency control.'}
-                    </li>
-                    <li>
-                      {isKhmer
-                        ? 'បង្កើតផ្ទាំង Dashboard គណនាប្រាក់ចំណូល ស្ថិតិកក់ជាក់ស្តែង និងប្រព័ន្ធចេញវិក្កយបត្រ (Receipts)។'
-                        : 'Built an interactive analytics dashboard tracking daily revenue, operational metrics, and automated receipt printing.'}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Project 2 */}
-              <div className={styles.entryBlock}>
-                <div className={styles.entryDot} />
-                <div className={styles.entryContent}>
-                  <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>
-                      <a
-                        href="https://github.com/YimLemeng/Inventory-System"
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.projectTitleLink}
-                      >
-                        Inventory Management System
-                      </a>
-                    </h4>
-                    <span className={styles.techBadge}>C# WinForms | SQL Server</span>
-                  </div>
-                  <p className={styles.entrySub}>
-                    {isKhmer ? 'កម្មវិធី Desktop Application គ្រប់គ្រងស្តុកទំនិញ' : 'Desktop Inventory & Stock Control System'}
-                  </p>
-                  <ul className={styles.bulletList}>
-                    <li>
-                      {isKhmer
-                        ? 'គ្រប់គ្រងលំហូរទំនិញនាំចូល (Stock In) និងនាំចេញ (Stock Out) ព្រមទាំងតាមដានទិន្នន័យអ្នកផ្គត់ផ្គង់ (Vendors)។'
-                        : 'Developed stock tracking software managing incoming/outgoing inventory levels, reorder points, and supplier logs.'}
-                    </li>
-                    <li>
-                      {isKhmer
-                        ? 'ប្រព័ន្ធជូនដំណឹងស្វ័យប្រវត្តិនៅពេលទំនិញជិតអស់ពីស្តុក (Low Stock Alert) និងកត់ត្រាប្រវត្តិប្រតិបត្តិការ។'
-                        : 'Integrated automated low-stock threshold alerts, category management, and detailed transaction audit trails.'}
-                    </li>
-                    <li>
-                      {isKhmer
-                        ? 'បង្កើតមុខងារស្វែងរកកម្រិតខ្ពស់ (Filter & Search) និងរបាយការណ៍ស្តុកលម្អិតសម្រាប់ធ្វើសេចក្តីសម្រេចចិត្ត។'
-                        : 'Implemented multi-criteria filtering, fast keyword searches, and comprehensive monthly inventory reports.'}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Project 3 */}
-              <div className={styles.entryBlock}>
-                <div className={styles.entryDot} />
-                <div className={styles.entryContent}>
-                  <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>
-                      <a
-                        href="https://mini-order-management-web.yimlemeng069.workers.dev/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.projectTitleLink}
-                      >
-                        Order Management System REST API
-                      </a>
-                    </h4>
-                    <span className={styles.techBadge}>Spring Boot | PostgreSQL</span>
-                  </div>
-                  <p className={styles.entrySub}>
-                    {isKhmer ? 'សេវាកម្ម Backend Web API' : 'Backend REST API Service'}
-                  </p>
-                  <ul className={styles.bulletList}>
-                    <li>
-                      {isKhmer
-                        ? 'បង្កើត RESTful API តាមស្តង់ដារ Layered Architecture ដោយប្រើ DTO Pattern និង JPA Relationships (Customer, Order, Product)។'
-                        : 'Architected robust RESTful API with Layered Architecture, DTO pattern, and JPA relationships (Customer, Order, Product).'}
-                    </li>
-                    <li>
-                      {isKhmer
-                        ? 'រៀបចំប្រព័ន្ធ Transactional (@Transactional) គណនាតម្លៃ និងកាត់ស្តុកទំនិញស្វ័យប្រវត្តិ ព្រមទាំងបង្វិលស្តុកវិញពេល Cancelled។'
-                        : 'Implemented @Transactional order placement logic with automated inventory stock validation and status lifecycle.'}
-                    </li>
-                    <li>
-                      {isKhmer
-                        ? 'រៀបចំ Global Exception Handling, Spring Validation, Dynamic Pagination និង Swagger API Documentation។'
-                        : 'Configured Global Exception Handling with custom error responses, Spring validation, and Swagger API documentation.'}
+                        ? 'បង្កើតកម្មវិធីគ្រប់គ្រងស្ថានីយរថយន្តក្រុង សម្រាប់កក់សំបុត្រ រៀបចំកាលវិភាគ និងរចនា Database លើ SQL Server ប្រកបដោយសុក្រឹតភាព។'
+                        : 'Engineered desktop booking software managing bus schedules, seat reservations, and normalized SQL Server transactions.'}
                     </li>
                   </ul>
                 </div>
