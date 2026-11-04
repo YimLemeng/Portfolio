@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
-import { Github } from '../Icons/Icons';
+import { Github, Linkedin } from '../Icons/Icons';
 import profilePhoto from '../../assets/Meng.png';
 import styles from './CVTemplate.module.css';
 
@@ -41,6 +41,17 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                   className={styles.contactLink}
                 >
                   github.com/YimLemeng
+                </a>
+              </li>
+              <li className={styles.contactItem}>
+                <span className={styles.iconBox}><Linkedin size={13} /></span>
+                <a
+                  href="https://www.linkedin.com/in/yim-lemeng-06436b343/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${styles.contactLink} ${styles.portfolioText}`}
+                >
+                  linkedin.com/in/<br />yim-lemeng-06436b343
                 </a>
               </li>
               <li className={styles.contactItem}>
@@ -138,7 +149,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
             </div>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Tools</h4>
-              <p className={styles.skillDesc}>Git, GitHub, Docker, VS Code</p>
+              <p className={styles.skillDesc}>Git, GitHub, VS Code, IntelliJ IDEA</p>
             </div>
           </div>
 
@@ -165,8 +176,8 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
             </h2>
             <p className={styles.summaryText}>
               {isKhmer
-                ? 'និស្សិតឆ្នាំទី ៣(ឆមាសទី ២) ផ្នែក IT ដែលមានចំណង់ចំណូលចិត្តខ្ពស់លើការអភិវឌ្ឍ Backend និង Desktop Applications។ មានមូលដ្ឋានគ្រឹះរឹងមាំលើ Java (Spring Boot) និង C# (.NET WinForms) ជាមួយបទពិសោធន៍ជាក់ស្តែងក្នុងការរចនា Database (SQL Server, PostgreSQL) និង RESTful APIs។ ត្រៀមខ្លួនជាស្រេចក្នុងការចូលរួមចំណែកបង្កើត Software ប្រកបដោយគុណភាពខ្ពស់។'
-                : 'Dedicated Year 3(semester 2) IT student specializing in Backend and Desktop Application Development. Strong practical foundation in Java (Spring Boot), C# (.NET WinForms), and relational databases (SQL Server, PostgreSQL). Passionate about building clean, well-architected software solutions and eager to contribute to innovative engineering teams.'}
+                ? 'និស្សិតឆ្នាំទី ៣(ឆមាសទី ២) ផ្នែក IT ដែលមានចំណង់ចំណូលចិត្តខ្ពស់លើការអភិវឌ្ឍ Backend និង Desktop Applications។ មានមូលដ្ឋានគ្រឹះលើ Java (Spring Boot) និង C# (.NET WinForms) ជាមួយបទពិសោធន៍ជាក់ស្តែងក្នុងការរចនា Database (SQL Server, PostgreSQL) និង RESTful APIs។ ត្រៀមខ្លួនជាស្រេចក្នុងការចូលរួមចំណែកបង្កើត Software ប្រកបដោយគុណភាពខ្ពស់។'
+                : 'Dedicated Year 3(semester 2) IT student specializing in Backend and Desktop Application Development. Practical foundation in Java (Spring Boot), C# (.NET WinForms), and relational databases (SQL Server, PostgreSQL). Passionate about building clean, well-architected software solutions and eager to contribute to innovative engineering teams.'}
             </p>
           </header>
 
@@ -311,7 +322,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                     <span className={styles.techBadge}>C# WinForms | SQL Server</span>
                   </div>
                   <p className={styles.entrySub}>
-                    {isKhmer ? 'កម្មវិធី Desktop Application គ្រប់គ្រងស្ថានីយរថយន្តក្រុង' : 'Desktop Enterprise Software Solution'}
+                    {isKhmer ? 'កម្មវិធី Desktop Application គ្រប់គ្រងស្ថានីយរថយន្តក្រុង' : 'Desktop Software Solution'}
                   </p>
                   <ul className={styles.bulletList}>
                     <li>
@@ -335,20 +346,20 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>{isKhmer ? 'អ្នកបើកបរដឹកជញ្ជូនរហ័ស (Express Driver)' : 'Express Delivery Driver'}</h4>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'អ្នកបើកបររថយន្ត (Driver)' : 'Driver'}</h4>
                     <span className={styles.entryDate}>2023 – 2024</span>
                   </div>
-                  <p className={styles.entrySub}>Nham 24 Express — Phnom Penh, Cambodia</p>
+                  <p className={styles.entrySub}>Nham 24 — Phnom Penh, Cambodia</p>
                   <ul className={styles.bulletList}>
                     <li>
                       {isKhmer
-                        ? 'ផ្តល់សេវាកម្មដឹកជញ្ជូនរហ័សទាន់ពេលវេលាប្រកបដោយទំនួលខុសត្រូវខ្ពស់ និងការប្រាស្រ័យទាក់ទងល្អជាមួយអតិថិជន។'
-                        : 'Maintained outstanding punctuality and customer satisfaction delivering time-critical orders across Phnom Penh.'}
+                        ? 'ផ្តល់សេវាកម្មបើកបររថយន្តប្រកបដោយសុវត្ថិភាពខ្ពស់ គោរពច្បាប់ចរាចរណ៍យ៉ាងម៉ឺងម៉ាត់ និងធានាការធ្វើដំណើរទាន់ពេលវេលា។'
+                        : 'Provided safe and punctual driving services, strictly adhering to traffic safety regulations and schedules.'}
                     </li>
                     <li>
                       {isKhmer
-                        ? 'គ្រប់គ្រងផែនទី និងផ្លូវធ្វើដំណើរប្រកបដោយប្រសិទ្ធភាពខ្ពស់ ព្រមទាំងសម្របសម្រួលតាមប្រព័ន្ធឌីជីថល (Mobile App)។'
-                        : 'Utilized mobile navigation tools to optimize routes, resolve address discrepancies, and manage delivery status.'}
+                        ? 'ប្រើប្រាស់ប្រព័ន្ធផែនទីឌីជីថល (GPS Navigation) ដើម្បីរៀបចំផ្លូវធ្វើដំណើរបានរហ័ស ថែទាំយានយន្ត និងប្រាស្រ័យទាក់ទងល្អជាមួយអតិថិជន។'
+                        : 'Leveraged GPS navigation tools to optimize travel routes across Phnom Penh, maintained vehicle condition, and ensured high customer satisfaction.'}
                     </li>
                   </ul>
                 </div>

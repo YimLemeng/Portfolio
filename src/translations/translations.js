@@ -22,7 +22,7 @@ export const translations = {
       viewCv: 'View CV',
       contactMe: 'Contact Me',
       cvFileName: 'Yim_Lemeng_Resume_EN.txt',
-      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nPROJECTS:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nEDUCATION:\nBachelor of Science in Information Technology (Year 3) - Build Bright University.`,
+      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nLinkedIn: https://www.linkedin.com/in/yim-lemeng-06436b343\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA\n\nPROJECTS:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nEDUCATION:\nBachelor of Science in Information Technology (Year 3) - Build Bright University.`,
       cvModal: {
         title: 'Curriculum Vitae',
         subtitle: 'A4 Format Preview',
@@ -167,9 +167,9 @@ export const translations = {
         },
         {
           role: 'Driver',
-          organization: 'Nham 24 Express',
+          organization: 'Nham 24',
           period: '2023 - 2024',
-          desc: 'Provided transportation services for clients, ensuring safe and efficient travel. Developed strong navigation skills and maintained a high level of professionalism in client interactions.',
+          desc: 'Provided professional driving and transportation services, ensuring passenger safety and timely travel. Developed strong navigation skills using GPS and maintained high standards of vehicle care.',
         },
       ],
       eduList: [
@@ -226,7 +226,7 @@ export const translations = {
       viewCv: 'មើល CV',
       contactMe: 'ទាក់ទងមកខ្ញុំ',
       cvFileName: 'Yim_Lemeng_Resume_KH.txt',
-      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nទំនាក់ទំនង: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nជំនាញបច្ចេកទេស:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- ឧបករណ៍ជំនួយ: Git, GitHub, VS Code, IntelliJ IDEA, Visual Studio\n\nគម្រោងស្នាដៃ:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nការអប់រំ:\nបរិញ្ញាបត្របច្ចេកវិទ្យាព័ត៌មានវិទ្យា (ឆ្នាំទី ៣) - សាកលវិទ្យាល័យ បៀលប្រាយ (BBU)`,
+      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nទំនាក់ទំនង: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nLinkedIn: https://www.linkedin.com/in/yim-lemeng-06436b343\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nជំនាញបច្ចេកទេស:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- ឧបករណ៍ជំនួយ: Git, GitHub, VS Code, IntelliJ IDEA\n\nគម្រោងស្នាដៃ:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nការអប់រំ:\nបរិញ្ញាបត្របច្ចេកវិទ្យាព័ត៌មានវិទ្យា (ឆ្នាំទី ៣) - សាកលវិទ្យាល័យ បៀលប្រាយ (BBU)`,
       cvModal: {
         title: 'ប្រវត្តិរូបសង្ខេប (CV)',
         subtitle: 'ផ្ទាំងមើលទម្រង់ A4',
@@ -242,7 +242,7 @@ export const translations = {
       subtitle: 'ដំណើរការអភិវឌ្ឍន៍',
       title: 'អំពីខ្ញុំ',
       whoIAm: 'អំពីខ្លួនខ្ញុំ',
-      paragraph1: 'ខ្ញុំបាទជាអ្នកអភិវឌ្ឍន៍កម្មវិធី (Software Developer) ដែលមានការតាំងចិត្តខ្ពស់ និងមានមូលដ្ឋានគ្រឹះរឹងមាំក្នុងការអភិវឌ្ឍប្រព័ន្ធ Backend និងកម្មវិធី Desktop។ ជំនាញស្នូលរបស់ខ្ញុំរួមមាន Java / Spring Boot, C# Windows Forms និងប្រព័ន្ធមូលដ្ឋានទិន្នន័យ Relational Database (SQL Server, PostgreSQL)។',
+      paragraph1: 'ខ្ញុំបាទជាអ្នកអភិវឌ្ឍន៍កម្មវិធី (Software Developer) ដែលមានការតាំងចិត្តខ្ពស់ និងមានមូលដ្ឋានគ្រឹះក្នុងការអភិវឌ្ឍប្រព័ន្ធ Backend និងកម្មវិធី Desktop។ ជំនាញស្នូលរបស់ខ្ញុំរួមមាន Java / Spring Boot, C# Windows Forms និងប្រព័ន្ធមូលដ្ឋានទិន្នន័យ Relational Database (SQL Server, PostgreSQL)។',
       paragraph2: 'ដំណើរនៃការអភិវឌ្ឍន៍កម្មវិធីរបស់ខ្ញុំកើតចេញពីចំណង់ចំណូលចិត្តក្នុងការស្វែងយល់ពីរបៀបដំណើរការនៃប្រព័ន្ធធំៗ។ មិនថាជាការបង្កើតកម្មវិធី Desktop សម្រាប់កក់សំបុត្រ ឬការបង្កើតប្រព័ន្ធ REST APIs ដែលមានសុវត្ថិភាពខ្ពស់ និងរហ័សនោះទេ ខ្ញុំតែងតែប្រកាន់ខ្ជាប់នូវស្តង់ដារកូដស្អាត និងប្រសិទ្ធភាពទិន្នន័យជានិច្ច។',
       careerObjective: 'គោលដៅការងារ',
       objectiveParagraph: 'គោលដៅរបស់ខ្ញុំគឺស្វែងរកឱកាសការងារក្នុងមុខតំណែង Software Developer, Backend Developer ឬ Java Developer នៅក្នុងស្ថាប័ន ឬក្រុមហ៊ុនបច្ចេកវិទ្យាដែលរីកចម្រើន ដើម្បីយកចំណេះដឹងផ្នែក OOP, ការរចនា API និងការគ្រប់គ្រង Database ទៅជួយអភិវឌ្ឍប្រព័ន្ធឱ្យកាន់តែប្រសើរ និងរៀនសូត្របន្ថែមជាបន្តបន្ទាប់។',
@@ -370,10 +370,10 @@ export const translations = {
           desc: 'ទទួលខុសត្រូវក្នុងការដឹកជញ្ជូនកញ្ចប់អីវ៉ាន់ និងទំនិញទៅកាន់ទីតាំងផ្សេងៗទាន់ពេលវេលា និងត្រឹមត្រូវ។ ទទួលបានបទពិសោធន៍ក្នុងការកំណត់ផ្លូវ គ្រប់គ្រងពេលវេលា និងបម្រើសេវាកម្មអតិថិជន។',
         },
         {
-          role: 'អ្នកបើកបរ (Driver)',
-          organization: 'ក្រុមហ៊ុន Nham 24 Express',
+          role: 'អ្នកបើកបររថយន្ត (Driver)',
+          organization: 'ក្រុមហ៊ុន Nham 24',
           period: '2023 - 2024',
-          desc: 'ផ្តល់សេវាកម្មដឹកជញ្ជូនសម្រាប់អតិថិជនប្រកបដោយសុវត្ថិភាព និងភាពរហ័សរហួន។ បង្កើនជំនាញរុករកផ្លូវ និងរក្សាវិជ្ជាជីវៈខ្ពស់ក្នុងការទំនាក់ទំនងជាមួយអតិថិជន។',
+          desc: 'ផ្តល់សេវាកម្មបើកបររថយន្តប្រកបដោយសុវត្ថិភាព និងទាន់ពេលវេលា។ បង្កើនជំនាញរុករកផ្លូវតាម GPS ថែទាំយានយន្ត និងរក្សាវិជ្ជាជីវៈខ្ពស់ក្នុងការទំនាក់ទំនងជាមួយអតិថិជន។',
         },
       ],
       eduList: [

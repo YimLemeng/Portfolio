@@ -4,8 +4,6 @@
 
 [![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![Nginx](https://img.shields.io/badge/Nginx-Production-009639?style=for-the-badge&logo=nginx&logoColor=white)](https://nginx.org/)
 
 <p align="center">
   A modern, high-performance, and fully responsive Developer Portfolio website built for <strong>Yim Lemeng</strong>, a Software Developer specializing in <strong>Java / Spring Boot</strong>, <strong>C# Windows Forms</strong>, <strong>RESTful APIs</strong>, and <strong>Relational Databases</strong>.
@@ -20,7 +18,6 @@
 - 🌐 **Bilingual Support (EN / KH)**: Full dynamic language switcher supporting both **English** and **Khmer (ភាសាខ្មែរ)** with typography optimization (`Kantumruy Pro`).
 - 🌓 **Dark & Light Mode**: Theme switcher with smooth micro-animations and CSS variable persistence.
 - 📄 **Automated PDF CV Generator**: Instant client-side generation and download of professional single-page A4 PDF resumes in English or Khmer.
-- 🐳 **Docker & Docker Compose**: Production-ready multi-stage Docker build utilizing lightweight Nginx Alpine container for high-speed delivery.
 - 📱 **Fully Responsive**: Optimized UI/UX across all device form factors (Mobile, Tablet, Desktop).
 - 🎨 **Modern Glassmorphism & Animations**: Fluid page transitions powered by **Framer Motion** and modern glowing glassmorphism effects.
 - 💼 **Project Showcase**: Showcasing enterprise backend architectures, database models, and desktop applications with live demo & GitHub repository links.
@@ -37,10 +34,6 @@
 - **Styling**: CSS Modules, CSS Custom Variables, Responsive Grid & Flexbox
 - **Fonts**: Plus Jakarta Sans, Inter, Kantumruy Pro (Google Fonts)
 - **PDF Generation**: [html2pdf.js](https://ekoopmans.github.io/html2pdf.js/)
-
-### DevOps & Deployment
-- **Containerization**: Docker & Docker Compose
-- **Web Server**: Nginx Alpine (with SPA routing configuration)
 
 ---
 
@@ -71,9 +64,6 @@ Portfolio/
 │   ├── translations/      # English & Khmer translation dictionary
 │   ├── App.jsx            # Application root
 │   └── main.jsx           # Vite entry point
-├── Dockerfile             # Multi-stage Docker build configuration
-├── docker-compose.yml     # Docker Compose orchestration configuration
-├── nginx.conf             # Custom Nginx SPA configuration
 ├── package.json           # Project dependencies & scripts
 └── vite.config.js         # Vite build configuration
 ```
@@ -86,7 +76,6 @@ Portfolio/
 Make sure you have the following installed on your machine:
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- [Docker](https://www.docker.com/) (Optional, for containerized run)
 
 ### 1. Clone the Repository
 ```bash
@@ -108,24 +97,6 @@ Open your browser and navigate to `http://localhost:5173`.
 ### 4. Build for Production
 ```bash
 npm run build
-```
-
----
-
-## 🐳 Run with Docker & Docker Compose
-
-Deploy the production build inside a lightweight Docker container with a single command:
-
-```bash
-# Build and run container in background
-docker compose up -d --build
-```
-
-Access the application at: **`http://localhost:8080`**
-
-To stop the container:
-```bash
-docker compose down
 ```
 
 ---
