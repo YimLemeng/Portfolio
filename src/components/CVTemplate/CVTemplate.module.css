@@ -43,9 +43,6 @@
   text-transform: none !important;
 }
 
-/* ===================================================
-   LEFT SIDEBAR (Deep Classic Navy #10375c)
-=================================================== */
 .sidebar {
   width: 226px;
   min-width: 226px;
@@ -143,7 +140,6 @@
 }
 
 .portfolioText {
-  word-break: break-all;
   font-size: 0.66rem;
   line-height: 1.25;
 }

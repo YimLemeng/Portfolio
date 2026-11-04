@@ -49,9 +49,9 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                   href="https://yimlemeng-portfolio.yimlemeng.workers.dev"
                   target="_blank"
                   rel="noreferrer"
-                  className={styles.contactLink}
+                  className={`${styles.contactLink} ${styles.portfolioText}`}
                 >
-                  Yimlemeng-Portfolio
+                  yimlemeng-portfolio.<br />yimlemeng.workers.dev
                 </a>
               </li>
               <li className={styles.contactItem}>
@@ -134,11 +134,11 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
             </div>
             <div className={styles.skillGroup}>
               <h4 className={styles.skillLabel}>Database</h4>
-              <p className={styles.skillDesc}>SQL Server, PostgreSQL, Flyway</p>
+              <p className={styles.skillDesc}>SQL Server, PostgreSQL</p>
             </div>
             <div className={styles.skillGroup}>
-              <h4 className={styles.skillLabel}>Tools & DevOps</h4>
-              <p className={styles.skillDesc}>Git, GitHub, Docker, Postman, VS Code</p>
+              <h4 className={styles.skillLabel}>Tools</h4>
+              <p className={styles.skillDesc}>Git, GitHub, Docker, VS Code</p>
             </div>
           </div>
 
@@ -161,7 +161,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
           <header className={styles.header}>
             <h1 className={styles.name}>{isKhmer ? 'យឹម លីម៉េង' : 'YIM LEMENG'}</h1>
             <h2 className={styles.jobTitle}>
-              {isKhmer ? 'អ្នកអភិវឌ្ឍន៍ SOFTWARE & BACKEND DEVELOPER' : 'SOFTWARE & BACKEND DEVELOPER'}
+              BACKEND DEVELOPER INTERN
             </h2>
             <p className={styles.summaryText}>
               {isKhmer
@@ -358,7 +358,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
-                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកដឹកជញ្ជូនកញ្ចប់ទំនិញ (Courier)' : 'Delivery Courier'}</h4>
+                    <h4 className={styles.entryRole}>{isKhmer ? 'បុគ្គលិកដឹកជញ្ជូនកញ្ចប់ទំនិញ (Delivery)' : 'Delivery Driver'}</h4>
                     <span className={styles.entryDate}>2020 – 2023</span>
                   </div>
                   <p className={styles.entrySub}>J&T Express — Phnom Penh, Cambodia</p>
