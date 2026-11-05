@@ -72,17 +72,24 @@ export default function Navbar({ theme, toggleTheme }) {
     if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
     clickTimeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;
-    }, 800);
+    }, 1000);
 
-    const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({
-        top,
-        behavior: 'smooth',
-      });
-      window.history.pushState(null, '', `#${id}`);
-    }
+    // Allow mobile touch gesture and menu close state update to settle before scrolling
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 70;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = el.getBoundingClientRect().top;
+        const offsetPosition = elementRect - bodyRect - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+        window.history.pushState(null, '', `#${id}`);
+      }
+    }, 120);
   };
 
   return (

@@ -118,22 +118,29 @@
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
+  background: var(--bg-primary);
+  z-index: 1000;
 }
 
 .mobileLinks {
   display: flex;
   flex-direction: column;
-  padding: 16px 24px 24px;
-  gap: 16px;
+  padding: 16px 20px 24px;
+  gap: 6px;
 }
 
 .mobileNavLink {
+  display: block;
+  width: 100%;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-secondary);
-  padding: 8px 0;
+  padding: 12px 12px;
   border-bottom: 1px solid var(--border-color);
   transition: all var(--transition-fast);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: var(--border-radius-sm);
 }
 
 .mobileNavLink:last-child {
@@ -143,5 +150,6 @@
 .mobileNavLink:hover,
 .mobileNavLink.active {
   color: var(--accent-primary);
-  padding-left: 8px;
+  padding-left: 18px;
+  background: var(--bg-tertiary);
 }
