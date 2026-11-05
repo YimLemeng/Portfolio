@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
-import { Github } from '../../components/Icons/Icons';
+import { Github, Linkedin } from '../../components/Icons/Icons';
 import { useLanguage } from '../../context/LanguageContext';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import styles from './Contact.module.css';
@@ -55,6 +55,16 @@ export default function Contact() {
                 <div className={styles.cardContent}>
                   <h4 className={styles.infoTitle}>{t.contact.githubLabel}</h4>
                   <p className={styles.infoValue}>github.com/YimLemeng</p>
+                </div>
+              </a>
+
+              <a href="https://www.linkedin.com/in/yim-lemeng-06436b343/" target="_blank" rel="noopener noreferrer" className={`${styles.infoCard} glass`}>
+                <div className={styles.iconWrapper}>
+                  <Linkedin size={24} />
+                </div>
+                <div className={styles.cardContent}>
+                  <h4 className={styles.infoTitle}>{t.contact.linkedinLabel || 'LinkedIn'}</h4>
+                  <p className={styles.infoValue}>linkedin.com/in/yim-lemeng-06436b343</p>
                 </div>
               </a>
             </div>
