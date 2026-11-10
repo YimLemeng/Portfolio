@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
@@ -24,6 +24,8 @@ export default function CVModal({
   const [modalLanguage, setModalLanguage] = useState(appLanguage);
   const [scale, setScale] = useState(1);
   const [isAutoFit, setIsAutoFit] = useState(false);
+  const [isPrinting, setIsPrinting] = useState(false);
+  const printElementRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -98,9 +100,109 @@ export default function CVModal({
     }
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
+  const handlePrint = useCallback(async () => {
+    if (isPrinting) return;
+    setIsPrinting(true);
+
+    try {
+      const html2pdf = (await import('html2pdf.js')).default;
+      const element = printElementRef.current;
+      if (!element) {
+        window.print();
+        return;
+      }
+
+      const opt = {
+        margin: 0,
+        filename: 'cv.pdf',
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          letterRendering: true,
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait',
+        },
+      };
+
+      const canvas = await html2pdf().from(element).set(opt).toCanvas().get('canvas');
+      const imgData = canvas.toDataURL('image/png');
+
+      const iframe = document.createElement('iframe');
+      iframe.style.position = 'fixed';
+      iframe.style.right = '0';
+      iframe.style.bottom = '0';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.border = '0';
+      document.body.appendChild(iframe);
+
+      const frameDoc = iframe.contentWindow.document;
+      frameDoc.open();
+      frameDoc.write(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>YIM LEMENG - CV</title>
+            <style>
+              @page {
+                size: A4 portrait;
+                margin: 0;
+              }
+              * {
+                box-sizing: border-box;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+              html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                background: #ffffff;
+                overflow: hidden;
+              }
+              img {
+                width: 210mm;
+                height: 297mm;
+                display: block;
+              }
+            </style>
+          </head>
+          <body>
+            <img src="${imgData}" onload="setTimeout(() => { window.focus(); window.print(); }, 150);" />
+          </body>
+        </html>
+      `);
+      frameDoc.close();
+
+      setTimeout(() => {
+        try {
+          document.body.removeChild(iframe);
+        } catch (e) {}
+      }, 60000);
+    } catch (err) {
+      console.error('Print failed:', err);
+    } finally {
+      setIsPrinting(false);
+    }
+  }, [isPrinting]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handlePrintKey = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+        e.preventDefault();
+        handlePrint();
+      }
+    };
+    window.addEventListener('keydown', handlePrintKey);
+    return () => window.removeEventListener('keydown', handlePrintKey);
+  }, [isOpen, handlePrint]);
 
   const isKhmer = modalLanguage === 'km';
   const modalTexts = t?.hero?.cvModal || {
@@ -202,11 +304,18 @@ export default function CVModal({
                 <button 
                   type="button"
                   onClick={handlePrint}
+                  disabled={isPrinting || isGeneratingPdf}
                   className={styles.iconActionBtn}
                   title={modalTexts.print}
                 >
-                  <Printer size={16} />
-                  <span className={styles.actionBtnLabel}>{modalTexts.print}</span>
+                  {isPrinting ? (
+                    <Loader2 className={styles.spinner} size={16} />
+                  ) : (
+                    <Printer size={16} />
+                  )}
+                  <span className={styles.actionBtnLabel}>
+                    {isPrinting ? (isKhmer ? 'កំពុងរៀបចំ...' : 'Preparing...') : modalTexts.print}
+                  </span>
                 </button>
 
                 {/* Download PDF button */}
@@ -249,6 +358,21 @@ export default function CVModal({
 
             {/* Modal Scrollable Body */}
             <div className={styles.modalBody}>
+              {/* Hidden offscreen unscaled CV for 1-page pristine A4 print rendering */}
+              <div 
+                style={{ 
+                  position: 'fixed', 
+                  top: '-99999px', 
+                  left: '-99999px', 
+                  width: '740px', 
+                  pointerEvents: 'none', 
+                  zIndex: -99999 
+                }}
+                aria-hidden="true"
+              >
+                <CVTemplate ref={printElementRef} language={modalLanguage} isPreview={false} />
+              </div>
+
               <div 
                 className={styles.cvScaleWrapper}
                 style={{

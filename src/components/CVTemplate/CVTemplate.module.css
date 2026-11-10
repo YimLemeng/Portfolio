@@ -34,6 +34,20 @@
   overflow: hidden;
 }
 
+@media print {
+  .cvContainer {
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
 .khmerFont {
   font-family: 'Kantumruy Pro', 'Plus Jakarta Sans', sans-serif !important;
 }
@@ -308,9 +322,17 @@
   font-size: 0.78rem;
   font-weight: 700;
   color: #2563eb;
-  letter-spacing: 0.08em;
-  margin: 0 0 2px 0;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 3px 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.jobTitleDots {
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: #2563eb;
 }
 
 .summaryText {

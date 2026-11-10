@@ -172,7 +172,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
           <header className={styles.header}>
             <h1 className={styles.name}>{isKhmer ? 'យឹម លីម៉េង' : 'YIM LEMENG'}</h1>
             <h2 className={styles.jobTitle}>
-              BACKEND DEVELOPER INTERN
+              Position: <span className={styles.jobTitleDots}>..................................................</span>
             </h2>
             <p className={styles.summaryText}>
               {isKhmer
@@ -244,31 +244,31 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 <h3 className={styles.sectionHeading}>{isKhmer ? 'គម្រោងស្នាដៃសំខាន់ៗ' : 'FEATURED PROJECTS'}</h3>
               </div>
 
-              {/* Project 1: School Management System */}
+              {/* Project 1: HR & Payroll System */}
               <div className={styles.entryBlock}>
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
                     <h4 className={styles.entryRole}>
                       <a
-                        href="https://school-management-system-web.yimlemeng.workers.dev"
+                        href="https://hr-payroll.yimlemeng.workers.dev/"
                         target="_blank"
                         rel="noreferrer"
                         className={styles.projectTitleLink}
                       >
-                        School Management System
+                        HR & Payroll System
                       </a>
                     </h4>
                     <span className={styles.techBadge}>Spring Boot | React JS</span>
                   </div>
                   <p className={styles.entrySub}>
-                    {isKhmer ? 'ប្រព័ន្ធគ្រប់គ្រងសាលារៀន Web Management System' : 'Web-Based Academic Management System'}
+                    {isKhmer ? 'ប្រព័ន្ធគ្រប់គ្រងបុគ្គលិក និងបើកប្រាក់បៀវត្សរ៍ HR & Payroll System' : 'Web-Based HR, Attendance & Payroll System'}
                   </p>
                   <ul className={styles.bulletList}>
                     <li>
                       {isKhmer 
-                        ? 'បង្កើតប្រព័ន្ធគ្រប់គ្រងសាលារៀនជាមួយ JWT, Spring Security, ការចុះឈ្មោះចូលរៀន, PostgreSQL និង Flyway។'
-                        : 'Developed academic backend portal with role-based access control (JWT/Spring Security), course enrollments, PostgreSQL, and Flyway.'}
+                        ? 'បង្កើតប្រព័ន្ធ HR & Payroll ជាមួយ JWT/Redis, តាមដានវត្តមាន, អនុម័តច្បាប់ឈប់សម្រាក, គណនាប្រាក់បៀវត្សរ៍ស្វ័យប្រវត្តិ (BigDecimal) និង PostgreSQL។'
+                        : 'Engineered web-based HR portal with RBAC (JWT/Redis), attendance logs, leave approvals, automated BigDecimal payroll engine, and PostgreSQL.'}
                     </li>
                   </ul>
                 </div>
@@ -304,31 +304,31 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
                 </div>
               </div>
 
-              {/* Project 3: Bus Station Management System */}
+              {/* Project 3: School Management System */}
               <div className={styles.entryBlock}>
                 <div className={styles.entryDot} />
                 <div className={styles.entryContent}>
                   <div className={styles.entryTopRow}>
                     <h4 className={styles.entryRole}>
                       <a
-                        href="https://drive.google.com/file/d/1Tpz5VcIkaT9X9KGRHU5OZ9Yw9tbbIuOa/view?usp=sharing"
+                        href="https://school-management-system-web.yimlemeng.workers.dev"
                         target="_blank"
                         rel="noreferrer"
                         className={styles.projectTitleLink}
                       >
-                        Bus Station Management System
+                        School Management System
                       </a>
                     </h4>
-                    <span className={styles.techBadge}>C# WinForms | SQL Server</span>
+                    <span className={styles.techBadge}>Spring Boot | React JS</span>
                   </div>
                   <p className={styles.entrySub}>
-                    {isKhmer ? 'កម្មវិធី Desktop Application គ្រប់គ្រងស្ថានីយរថយន្តក្រុង' : 'Desktop Software Solution'}
+                    {isKhmer ? 'ប្រព័ន្ធគ្រប់គ្រងសាលារៀន Web Management System' : 'Web-Based Academic Management System'}
                   </p>
                   <ul className={styles.bulletList}>
                     <li>
                       {isKhmer 
-                        ? 'បង្កើតកម្មវិធីគ្រប់គ្រងស្ថានីយរថយន្តក្រុង សម្រាប់កក់សំបុត្រ រៀបចំកាលវិភាគ និងរចនា Database លើ SQL Server ប្រកបដោយសុក្រឹតភាព។'
-                        : 'Engineered desktop booking software managing bus schedules, seat reservations, and normalized SQL Server transactions.'}
+                        ? 'បង្កើតប្រព័ន្ធគ្រប់គ្រងសាលារៀនជាមួយ JWT, Spring Security, ការចុះឈ្មោះចូលរៀន, PostgreSQL និង Flyway។'
+                        : 'Developed academic backend portal with role-based access control (JWT/Spring Security), course enrollments, PostgreSQL, and Flyway.'}
                     </li>
                   </ul>
                 </div>
