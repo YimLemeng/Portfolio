@@ -172,7 +172,7 @@ const CVTemplate = forwardRef(({ language = 'en', isPreview = false }, ref) => {
           <header className={styles.header}>
             <h1 className={styles.name}>{isKhmer ? 'យឹម លីម៉េង' : 'YIM LEMENG'}</h1>
             <h2 className={styles.jobTitle}>
-              Position: <span className={styles.jobTitleDots}>..................................................</span>
+              BACKEND DEVELOPER INTERN
             </h2>
             <p className={styles.summaryText}>
               {isKhmer
