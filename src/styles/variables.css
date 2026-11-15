@@ -1,15 +1,27 @@
 :root {
   /* Common variables */
   --font-sans: 'Plus Jakarta Sans', 'Kantumruy Pro', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  --border-radius-sm: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 20px;
-  --border-radius-xl: 30px;
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --border-radius-xs: 6px;
+  --border-radius-sm: 10px;
+  --border-radius-md: 14px;
+  --border-radius-lg: 22px;
+  --border-radius-xl: 32px;
+  --border-radius-full: 9999px;
   --container-width: 1200px;
   --header-height: 80px;
+
+  /* Accent Palette */
+  --accent-primary: #4f46e5;
+  --accent-primary-rgb: 79, 70, 229;
+  --accent-secondary: #7c3aed;
+  --accent-secondary-rgb: 124, 58, 237;
+  --accent-cyan: #06b6d4;
+  --accent-cyan-rgb: 6, 182, 212;
+  --accent-success: #10b981;
+  --accent-success-rgb: 16, 185, 129;
 
   /* Light theme variables */
   --bg-primary: #f8fafc;
@@ -18,29 +30,25 @@
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
-  --accent-primary: #4f46e5;
-  --accent-primary-rgb: 79, 70, 229;
-  --accent-secondary: #7c3aed;
-  --accent-secondary-rgb: 124, 58, 237;
-  --accent-success: #10b981;
   --border-color: #e2e8f0;
   --border-hover: #cbd5e1;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(226, 232, 240, 0.8);
-  --glow-color: rgba(79, 70, 229, 0.08);
-  --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
-  --hero-gradient-1: rgba(79, 70, 229, 0.05);
-  --hero-gradient-2: rgba(124, 58, 237, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 30px -4px rgba(15, 23, 42, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(226, 232, 240, 0.85);
+  --glow-color: rgba(79, 70, 229, 0.12);
+  --card-gradient: linear-gradient(145deg, #ffffff, #f8fafc);
+  --hero-gradient-1: rgba(79, 70, 229, 0.08);
+  --hero-gradient-2: rgba(124, 58, 237, 0.08);
+  --hero-gradient-3: rgba(6, 182, 212, 0.06);
 }
 
 [data-theme='dark'] {
-  /* Dark theme variables */
-  --bg-primary: #080c14;
-  --bg-secondary: #0f172a;
-  --bg-tertiary: #1e293b;
+  /* Ultra-Modern Obsidian / Linear Tech Dark theme */
+  --bg-primary: #060913;
+  --bg-secondary: #0c1222;
+  --bg-tertiary: #131c31;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
@@ -48,16 +56,20 @@
   --accent-primary-rgb: 99, 102, 241;
   --accent-secondary: #8b5cf6;
   --accent-secondary-rgb: 139, 92, 246;
+  --accent-cyan: #38bdf8;
+  --accent-cyan-rgb: 56, 189, 248;
   --accent-success: #34d399;
-  --border-color: #1e293b;
-  --border-hover: #334155;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-  --glass-bg: rgba(15, 23, 42, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glow-color: rgba(99, 102, 241, 0.15);
-  --card-gradient: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
-  --hero-gradient-1: rgba(99, 102, 241, 0.12);
-  --hero-gradient-2: rgba(139, 92, 246, 0.12);
+  --accent-success-rgb: 52, 211, 153;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(99, 102, 241, 0.45);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(12, 18, 34, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glow-color: rgba(99, 102, 241, 0.22);
+  --card-gradient: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(9, 14, 28, 0.9));
+  --hero-gradient-1: rgba(99, 102, 241, 0.16);
+  --hero-gradient-2: rgba(139, 92, 246, 0.14);
+  --hero-gradient-3: rgba(56, 189, 248, 0.12);
 }

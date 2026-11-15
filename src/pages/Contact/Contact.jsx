@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Mail, Phone } from 'lucide-react';
 import { Github } from '../../components/Icons/Icons';
 import { useLanguage } from '../../context/LanguageContext';
@@ -15,13 +14,7 @@ export default function Contact() {
         <SectionHeader title={t.contact.title} subtitle={t.contact.subtitle} />
 
         <div className={styles.centerWrapper}>
-          <motion.div 
-            className={styles.infoColumn}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className={styles.infoColumn}>
             <h3 className={styles.title}>{t.contact.connectHeading}</h3>
             <p className={styles.subtitle}>
               {t.contact.connectSubtitle}
@@ -58,7 +51,7 @@ export default function Contact() {
                 </div>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -27,44 +27,44 @@ export default function Navbar({ theme, toggleTheme }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // If user clicked a link, don't let scroll spy overwrite the active section during smooth scroll
-      if (isClickScrolling.current) return;
-
-      // Bottom of page detection (Contact is the last section)
-      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
-      if (isBottom) {
-        setActiveSection('contact');
-        return;
-      }
-
-      // Robust top-crossing scroll spy using viewport-relative bounding rect
-      const headerOffset = 100;
-      let current = SECTION_IDS[0];
-      for (const id of SECTION_IDS) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= headerOffset) {
-            current = id;
-          }
-        }
-      }
-      setActiveSection(current);
+      const isScrolled = window.scrollY > 20;
+      setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    
+
+    // Native IntersectionObserver: runs on compositor thread, 0 layout thrashing!
+    const observerCallback = (entries) => {
+      if (isClickScrolling.current) return;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: '-20% 0px -50% 0px',
+      threshold: 0,
+    });
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
       if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
     };
   }, []);
 
   const handleLinkClick = (e, id) => {
     e.preventDefault();
+    const wasOpen = isOpen;
     setIsOpen(false);
     setActiveSection(id);
 
@@ -72,13 +72,12 @@ export default function Navbar({ theme, toggleTheme }) {
     if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
     clickTimeoutRef.current = setTimeout(() => {
       isClickScrolling.current = false;
-    }, 1000);
+    }, 700);
 
-    // Allow mobile touch gesture and menu close state update to settle before scrolling
-    setTimeout(() => {
+    const scrollToTarget = () => {
       const el = document.getElementById(id);
       if (el) {
-        const headerOffset = 70;
+        const headerOffset = 80;
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = el.getBoundingClientRect().top;
         const offsetPosition = elementRect - bodyRect - headerOffset;
@@ -89,7 +88,13 @@ export default function Navbar({ theme, toggleTheme }) {
         });
         window.history.pushState(null, '', `#${id}`);
       }
-    }, 120);
+    };
+
+    if (wasOpen) {
+      setTimeout(scrollToTarget, 80);
+    } else {
+      scrollToTarget();
+    }
   };
 
   return (
@@ -97,7 +102,9 @@ export default function Navbar({ theme, toggleTheme }) {
       <div className={`${styles.navContainer} container`}>
         {/* Logo */}
         <a href="#home" onClick={(e) => handleLinkClick(e, 'home')} className={styles.logo}>
-          <Terminal className={styles.logoIcon} size={22} />
+          <div className={styles.logoIconBox}>
+            <Terminal className={styles.logoIcon} size={18} />
+          </div>
           <span className={styles.logoText}>Yim<span className={styles.accent}> Lemeng</span></span>
         </a>
 
@@ -111,13 +118,6 @@ export default function Navbar({ theme, toggleTheme }) {
               className={`${styles.navLink} ${activeSection === item.id ? styles.active : ''}`}
             >
               {item.label}
-              {activeSection === item.id && (
-                <motion.div
-                  layoutId="activeIndicator"
-                  className={styles.activeIndicator}
-                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                />
-              )}
             </a>
           ))}
         </nav>

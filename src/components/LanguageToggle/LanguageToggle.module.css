@@ -3,24 +3,29 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  height: 42px;
-  padding: 0 12px;
-  border-radius: var(--border-radius-md);
-  background: var(--bg-tertiary);
+  height: 38px;
+  padding: 0 13px;
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
   cursor: pointer;
 }
 
+:global([data-theme='light']) .toggleBtn {
+  background: rgba(15, 23, 42, 0.04);
+}
+
 .toggleBtn:hover {
-  background: var(--bg-secondary);
+  background: rgba(99, 102, 241, 0.15);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
+  transform: scale(1.05);
 }
 
 .langIcon {
@@ -30,6 +35,6 @@
 .langLabel {
   font-family: var(--font-sans);
   display: inline-block;
-  min-width: 22px;
+  min-width: 20px;
   text-align: center;
 }

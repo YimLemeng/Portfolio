@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   Server, Laptop, Database, Wrench,
   Code, Cpu, Coffee, Network, 
@@ -40,21 +39,6 @@ const SKILLS_BY_CATEGORY = {
   ],
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 25 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-};
-
 export default function Skills() {
   const { t } = useLanguage();
 
@@ -63,24 +47,16 @@ export default function Skills() {
       <div className="container">
         <SectionHeader title={t.skills.title} subtitle={t.skills.subtitle} />
 
-        <motion.div 
-          className={styles.grid}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-50px' }}
-        >
+        <div className={styles.grid}>
           {CATEGORY_META.map((cat) => {
             const CatIcon = cat.icon;
             const skillsList = SKILLS_BY_CATEGORY[cat.id];
             const categoryTitle = t.skills.categories[cat.id] || cat.id;
 
             return (
-              <motion.div 
+              <div 
                 key={cat.id} 
                 className={`${styles.categoryCard} glass`}
-                variants={cardVariants}
-                whileHover={{ y: -5 }}
               >
                 <div className={styles.categoryHeader}>
                   <div className={styles.iconContainer}>
@@ -98,10 +74,10 @@ export default function Skills() {
                     />
                   ))}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

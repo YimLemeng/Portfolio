@@ -1,12 +1,11 @@
 .projects {
   position: relative;
-  background-color: var(--bg-primary);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 32px;
 }
 
 @media (max-width: 768px) {

@@ -1,11 +1,10 @@
 .about {
   position: relative;
-  background-color: var(--bg-primary);
 }
 
 .contentGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 50px;
   align-items: flex-start;
 }
@@ -20,25 +19,53 @@
 .bioColumn {
   display: flex;
   flex-direction: column;
+  padding: 36px;
+  border-radius: var(--border-radius-lg);
+  background: var(--card-gradient);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateZ(0);
+}
+
+@media (max-width: 576px) {
+  .bioColumn {
+    padding: 24px;
+  }
 }
 
 .subHeading {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subHeading::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: var(--border-radius-full);
 }
 
 .bioColumn .subHeading:not(:first-child) {
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .paragraph {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 16px;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
 }
 
 .paragraph strong {
@@ -48,40 +75,48 @@
 .valuesColumn {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .valueCard {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  padding: 24px;
+  gap: 18px;
+  padding: 22px;
   border-radius: var(--border-radius-lg);
   background: var(--card-gradient);
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-normal);
+  transform: translateZ(0);
 }
 
 .valueCard:hover {
-  box-shadow: var(--shadow-md), 0 4px 15px var(--glow-color);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md), 0 8px 24px -4px var(--glow-color), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateX(6px);
 }
 
 .iconContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--border-radius-md);
-  background: var(--bg-tertiary);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.18));
+  border: 1px solid rgba(99, 102, 241, 0.3);
   color: var(--accent-primary);
   flex-shrink: 0;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.15);
+  transition: all var(--transition-fast);
 }
 
 .valueCard:hover .iconContainer {
-  background: var(--accent-primary);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-color: transparent;
   color: #ffffff;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
 .valueText {
@@ -91,13 +126,14 @@
 }
 
 .valueTitle {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .valueDesc {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
 }

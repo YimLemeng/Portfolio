@@ -22,7 +22,7 @@ export const translations = {
       viewCv: 'View CV',
       contactMe: 'Contact Me',
       cvFileName: 'Yim_Lemeng_Resume_EN.txt',
-      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nLinkedIn: https://www.linkedin.com/in/yim-lemeng-06436b343\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA\n\nPROJECTS:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nEDUCATION:\nBachelor of Science in Information Technology (Year 3) - Build Bright University.`,
+      cvContent: `YIM LEMENG - JAVA BACKEND DEVELOPER RESUME\n\nContact: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nLinkedIn: https://www.linkedin.com/in/yim-lemeng-06436b343\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nTECHNICAL SKILLS:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- Tools: Git, GitHub, VS Code, IntelliJ IDEA\n\nPROJECTS:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nEDUCATION:\nBachelor of Science in Information Technology (Year 3) - Build Bright University.`,
       cvModal: {
         title: 'Curriculum Vitae',
         subtitle: 'A4 Format Preview',
@@ -229,7 +229,7 @@ export const translations = {
     },
     hero: {
       tagline: 'ត្រៀមខ្លួនសម្រាប់ឱកាសការងារ',
-      greeting: 'ជំរាបសួរ! ខ្ញុំបាទឈ្មោះ',
+      greeting: 'ជម្រាបសួរ! ខ្ញុំបាទឈ្មោះ',
       name: 'យឹម លីម៉េង',
       titles: [
         'អ្នកអភិវឌ្ឍន៍ Backend Developer',
@@ -241,7 +241,7 @@ export const translations = {
       viewCv: 'មើល CV',
       contactMe: 'ទាក់ទងមកខ្ញុំ',
       cvFileName: 'Yim_Lemeng_Resume_KH.txt',
-      cvContent: `YIM LEMENG - BACKEND DEVELOPER RESUME\n\nទំនាក់ទំនង: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nLinkedIn: https://www.linkedin.com/in/yim-lemeng-06436b343\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nជំនាញបច្ចេកទេស:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- ឧបករណ៍ជំនួយ: Git, GitHub, VS Code, IntelliJ IDEA\n\nគម្រោងស្នាដៃ:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nការអប់រំ:\nបរិញ្ញាបត្របច្ចេកវិទ្យាព័ត៌មានវិទ្យា (ឆ្នាំទី ៣) - សាកលវិទ្យាល័យ បៀលប្រាយ (BBU)`,
+      cvContent: `YIM LEMENG - JAVA BACKEND DEVELOPER RESUME\n\nទំនាក់ទំនង: yimlemeng.ym@gmail.com | +855 (69) 232-123\nGitHub: github.com/YimLemeng\nLinkedIn: https://www.linkedin.com/in/yim-lemeng-06436b343\nPortfolio: https://yimlemeng-portfolio.yimlemeng.workers.dev\n\nជំនាញបច្ចេកទេស:\n- Backend: Spring Boot, Java, REST APIs\n- Desktop Development: C# Windows Forms\n- Databases: SQL Server, PostgreSQL\n- ឧបករណ៍ជំនួយ: Git, GitHub, VS Code, IntelliJ IDEA\n\nគម្រោងស្នាដៃ:\n1. School Management System (Spring Boot, React JS, PostgreSQL)\n2. Banking System (Spring Boot, React JS, PostgreSQL)\n3. Bus Station Management System (C# Windows Forms, SQL Server)\n\nការអប់រំ:\nបរិញ្ញាបត្របច្ចេកវិទ្យាព័ត៌មានវិទ្យា (ឆ្នាំទី ៣) - សាកលវិទ្យាល័យ បៀលប្រាយ (BBU)`,
       cvModal: {
         title: 'ប្រវត្តិរូបសង្ខេប (CV)',
         subtitle: 'ផ្ទាំងមើលទម្រង់ A4',

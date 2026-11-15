@@ -2,21 +2,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--bg-tertiary);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  transition: all var(--transition-fast);
   overflow: hidden;
+  cursor: pointer;
+}
+
+:global([data-theme='light']) .toggleBtn {
+  background: rgba(15, 23, 42, 0.04);
 }
 
 .toggleBtn:hover {
-  background: var(--bg-secondary);
+  background: rgba(99, 102, 241, 0.15);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
+  transform: scale(1.05);
 }
 
 .iconContainer {
@@ -26,9 +32,9 @@
 }
 
 .sunIcon {
-  color: #fbbf24; /* Amber-400 */
+  color: #fbbf24;
 }
 
 .moonIcon {
-  color: #6366f1; /* Indigo-500 */
+  color: #818cf8;
 }

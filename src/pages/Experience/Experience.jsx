@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
@@ -17,19 +16,17 @@ export default function Experience() {
           {/* Work Experience Timeline */}
           <div className={styles.column}>
             <div className={styles.columnHeader}>
-              <Briefcase className={styles.headerIcon} size={22} />
+              <div className={styles.headerIconBox}>
+                <Briefcase className={styles.headerIcon} size={20} />
+              </div>
               <h3 className={styles.columnTitle}>{t.experience.workTitle}</h3>
             </div>
             
             <div className={styles.timeline}>
               {t.experience.workList.map((item, idx) => (
-                <motion.div 
+                <div 
                   key={idx}
                   className={styles.timelineItem}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
                 >
                   <div className={styles.timelineDot}>
                     <Briefcase size={14} />
@@ -40,7 +37,7 @@ export default function Experience() {
                     <h5 className={styles.orgName}>{item.organization}</h5>
                     <p className={styles.description}>{item.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -48,19 +45,17 @@ export default function Experience() {
           {/* Education & Training Timeline */}
           <div className={styles.column}>
             <div className={styles.columnHeader}>
-              <GraduationCap className={styles.headerIcon} size={22} />
+              <div className={styles.headerIconBox}>
+                <GraduationCap className={styles.headerIcon} size={20} />
+              </div>
               <h3 className={styles.columnTitle}>{t.experience.eduTitle}</h3>
             </div>
             
             <div className={styles.timeline}>
               {t.experience.eduList.map((item, idx) => (
-                <motion.div 
+                <div 
                   key={idx}
                   className={styles.timelineItem}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
                 >
                   <div className={styles.timelineDot}>
                     <GraduationCap size={14} />
@@ -71,7 +66,7 @@ export default function Experience() {
                     <h5 className={styles.orgName}>{item.organization}</h5>
                     <p className={styles.description}>{item.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

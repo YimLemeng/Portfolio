@@ -10,6 +10,7 @@ export default function MainLayout({ children, theme, toggleTheme }) {
       <div className="grid-bg" />
       <div className="glow-orb-1" />
       <div className="glow-orb-2" />
+      <div className="glow-orb-3" />
 
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main className={styles.mainContent}>{children}</main>
