@@ -206,9 +206,9 @@ export const translations = {
       subtitle: 'Get In Touch',
       title: 'Contact Me',
       connectHeading: "Let's Connect",
-      connectSubtitle: 'I am actively seeking opportunities for Backend Developer and Java Developer roles. Feel free to reach out via email, phone, or connect with me on GitHub.',
+      connectSubtitle: 'I am actively seeking opportunities for Backend Developer and Java Developer roles. Feel free to reach out via email, Telegram, or connect with me on GitHub.',
       emailLabel: 'Email',
-      phoneLabel: 'Phone Number',
+      telegramLabel: 'Telegram',
       githubLabel: 'GitHub',
     },
     footer: {
@@ -425,9 +425,9 @@ export const translations = {
       subtitle: 'ទំនាក់ទំនង',
       title: 'ទាក់ទងមកខ្ញុំ',
       connectHeading: 'តោះភ្ជាប់ទំនាក់ទំនង',
-      connectSubtitle: 'ខ្ញុំបាទកំពុងស្វែងរកឱកាសការងារក្នុងមុខតំណែង Backend Developer និង Java Developer។ សូមទាក់ទងមកខ្ញុំតាមរយៈអ៊ីមែល លេខទូរស័ព្ទ ឬតាមដានគម្រោងនៅលើ GitHub។',
+      connectSubtitle: 'ខ្ញុំបាទកំពុងស្វែងរកឱកាសការងារក្នុងមុខតំណែង Backend Developer និង Java Developer។ សូមទាក់ទងមកខ្ញុំតាមរយៈអ៊ីមែល តេឡេក្រាម (Telegram) ឬតាមដានគម្រោងនៅលើ GitHub។',
       emailLabel: 'អ៊ីមែល',
-      phoneLabel: 'លេខទូរស័ព្ទ',
+      telegramLabel: 'Telegram',
       githubLabel: 'GitHub',
     },
     footer: {

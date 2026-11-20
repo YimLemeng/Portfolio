@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, ArrowUp } from 'lucide-react';
-import { Github, Linkedin } from '../Icons/Icons';
+import { Github, Telegram } from '../Icons/Icons';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Footer.module.css';
 
@@ -35,13 +35,13 @@ export default function Footer() {
               <Github size={20} />
             </a>
             <a 
-              href="https://www.linkedin.com/in/yim-lemeng-06436b343/" 
+              href="https://t.me/YIM_LEMENG" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.socialLink} 
-              aria-label="LinkedIn"
+              aria-label="Telegram"
             >
-              <Linkedin size={20} />
+              <Telegram size={20} />
             </a>
             <a 
               href="mailto:yimlemeng.ym@gmail.com" 

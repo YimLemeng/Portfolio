@@ -1,6 +1,6 @@
 import React from 'react';
-import { Mail, Phone } from 'lucide-react';
-import { Github } from '../../components/Icons/Icons';
+import { Mail } from 'lucide-react';
+import { Github, Telegram } from '../../components/Icons/Icons';
 import { useLanguage } from '../../context/LanguageContext';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import styles from './Contact.module.css';
@@ -31,13 +31,13 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="tel:+85569232123" className={`${styles.infoCard} glass`}>
+              <a href="https://t.me/YIM_LEMENG" target="_blank" rel="noopener noreferrer" className={`${styles.infoCard} glass`}>
                 <div className={styles.iconWrapper}>
-                  <Phone size={24} />
+                  <Telegram size={24} />
                 </div>
                 <div className={styles.cardContent}>
-                  <h4 className={styles.infoTitle}>{t.contact.phoneLabel}</h4>
-                  <p className={styles.infoValue}>+855 (69) 232-123</p>
+                  <h4 className={styles.infoTitle}>{t.contact.telegramLabel}</h4>
+                  <p className={styles.infoValue}>t.me/YIM_LEMENG</p>
                 </div>
               </a>
 
