@@ -23,7 +23,7 @@ body {
 /* Khmer Unicode Font & Ligature Fix */
 [lang="km"] body,
 [lang="km"] *:not(.khmer-moul, .khmer-moul *) {
-  font-family: 'Kantumruy Pro', var(--font-sans);
+  font-family: 'Khmer OS Battambang', 'Battambang', 'Kantumruy Pro', var(--font-sans);
   letter-spacing: normal !important;
   text-transform: none !important;
 }
