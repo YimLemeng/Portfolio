@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X, Terminal, Eye } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import LanguageToggle from '../LanguageToggle/LanguageToggle';
+import CVTemplate from '../CVTemplate/CVTemplate';
+import CVModal from '../CVModal/CVModal';
 import { useLanguage } from '../../context/LanguageContext';
 import styles from './Navbar.module.css';
 
@@ -12,9 +14,13 @@ export default function Navbar({ theme, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [isCvModalOpen, setIsCvModalOpen] = useState(false);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const isClickScrolling = useRef(false);
   const clickTimeoutRef = useRef(null);
-  const { t } = useLanguage();
+  const cvRef = useRef(null);
+  const { t, language } = useLanguage();
+  const showViewCv = import.meta.env.DEV;
 
   const navItems = [
     { label: t.nav.home, href: '#home', id: 'home' },
@@ -97,8 +103,94 @@ export default function Navbar({ theme, toggleTheme }) {
     }
   };
 
+  const handleDownloadCV = async () => {
+    if (isGeneratingPdf) return;
+    setIsGeneratingPdf(true);
+
+    try {
+      const html2pdf = (await import('html2pdf.js')).default;
+      const { jsPDF } = await import('jspdf');
+      const element = cvRef.current;
+
+      if (!element) {
+        throw new Error('CV element not found');
+      }
+
+      const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
+
+      const opt = {
+        margin: 0,
+        filename: fileName,
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          letterRendering: true,
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait',
+        },
+      };
+
+      const canvas = await html2pdf().from(element).set(opt).toCanvas().get('canvas');
+      const pdf = new jsPDF({
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait',
+      });
+
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+
+      const containerRect = element.getBoundingClientRect();
+      const links = element.querySelectorAll('a[href]');
+
+      links.forEach((a) => {
+        const href = a.getAttribute('href');
+        if (!href) return;
+
+        const rects = a.getClientRects();
+        const clientRects = rects.length > 0 ? Array.from(rects) : [a.getBoundingClientRect()];
+
+        clientRects.forEach((rect) => {
+          if (rect.width === 0 || rect.height === 0) return;
+
+          const relX = rect.left - containerRect.left;
+          const relY = rect.top - containerRect.top;
+          const pdfX = (relX / containerRect.width) * 210;
+          const pdfY = (relY / containerRect.height) * 297;
+          const pdfW = (rect.width / containerRect.width) * 210;
+          const pdfH = (rect.height / containerRect.height) * 297;
+
+          pdf.link(pdfX, pdfY, pdfW, pdfH, { url: href });
+        });
+      });
+
+      pdf.save(fileName);
+    } catch (err) {
+      console.error('Failed to generate PDF:', err);
+      const cvContent = t.hero.cvContent;
+      const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = t.hero.cvFileName || 'Yim_Lemeng_Resume.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
+
   return (
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} glass`}>
+    <>
+      {showViewCv && <CVTemplate ref={cvRef} language={language} />}
+      <header className={`${styles.header} ${scrolled ? styles.scrolled : ''} glass`}>
       <div className={`${styles.navContainer} container`}>
         {/* Logo */}
         <a href="#home" onClick={(e) => handleLinkClick(e, 'home')} className={styles.logo}>
@@ -124,6 +216,17 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Language Toggle, Theme Toggle & Mobile Menu Trigger */}
         <div className={styles.actions}>
+          {showViewCv && (
+            <button
+              type="button"
+              onClick={() => setIsCvModalOpen(true)}
+              className={styles.cvNavBtn}
+              title={language === 'km' ? 'មើលប្រវត្តិរូបសង្ខេប (CV)' : 'View Curriculum Vitae (CV)'}
+            >
+              <Eye size={15} />
+              <span>{t.hero.viewCv}</span>
+            </button>
+          )}
           <LanguageToggle />
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           
@@ -158,10 +261,33 @@ export default function Navbar({ theme, toggleTheme }) {
                   {item.label}
                 </a>
               ))}
+              {showViewCv && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsCvModalOpen(true);
+                  }}
+                  className={styles.mobileCvBtn}
+                >
+                  <Eye size={18} />
+                  <span>{t.hero.viewCv}</span>
+                </button>
+              )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
+
+    {showViewCv && (
+      <CVModal
+        isOpen={isCvModalOpen}
+        onClose={() => setIsCvModalOpen(false)}
+        onDownloadPdf={handleDownloadCV}
+        isGeneratingPdf={isGeneratingPdf}
+      />
+    )}
+    </>
   );
 }

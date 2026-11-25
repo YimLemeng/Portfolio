@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Terminal, Eye } from 'lucide-react';
+import { ArrowRight, Layers } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
-import CVTemplate from '../../components/CVTemplate/CVTemplate';
-import CVModal from '../../components/CVModal/CVModal';
 import profilePhoto from '../../assets/Meng.png';
 import styles from './Hero.module.css';
 
@@ -17,9 +15,6 @@ export default function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-  const [isCvModalOpen, setIsCvModalOpen] = useState(false);
-  const cvRef = useRef(null);
 
   useEffect(() => {
     setTitleIndex(0);
@@ -51,112 +46,18 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, titleIndex, titles]);
 
-  const handleContactScroll = (e) => {
+  const handleSectionScroll = (e, sectionId) => {
     e.preventDefault();
-    const el = document.getElementById('contact');
+    const el = document.getElementById(sectionId);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 70;
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: 'smooth' });
-      window.history.pushState(null, '', '#contact');
-    }
-  };
-
-  const handleDownloadCV = async () => {
-    if (isGeneratingPdf) return;
-    setIsGeneratingPdf(true);
-
-    try {
-      const html2pdf = (await import('html2pdf.js')).default;
-      const { jsPDF } = await import('jspdf');
-      const element = cvRef.current;
-
-      if (!element) {
-        throw new Error('CV element not found');
-      }
-
-      const fileName = language === 'km' ? 'Yim_Lemeng_CV_KH.pdf' : 'Yim_Lemeng_CV_EN.pdf';
-
-      const opt = {
-        margin: 0,
-        filename: fileName,
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          letterRendering: true,
-        },
-        jsPDF: {
-          unit: 'mm',
-          format: 'a4',
-          orientation: 'portrait',
-        },
-      };
-
-      // html2pdf renders completely offscreen (-100000px) so nothing appears on user's screen
-      const canvas = await html2pdf().from(element).set(opt).toCanvas().get('canvas');
-
-      const pdf = new jsPDF({
-        unit: 'mm',
-        format: 'a4',
-        orientation: 'portrait',
-      });
-
-      const imgData = canvas.toDataURL('image/jpeg', 1.0);
-      // Full bleed 210mm x 297mm covers 100% of A4 page with zero cutoffs
-      pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297);
-
-      // Add interactive clickable link annotations for all links inside the CV
-      const containerRect = element.getBoundingClientRect();
-      const links = element.querySelectorAll('a[href]');
-
-      links.forEach((a) => {
-        const href = a.getAttribute('href');
-        if (!href) return;
-
-        // getClientRects handles both single-line and multi-line wrapped links
-        const rects = a.getClientRects();
-        const clientRects = rects.length > 0 ? Array.from(rects) : [a.getBoundingClientRect()];
-
-        clientRects.forEach((rect) => {
-          if (rect.width === 0 || rect.height === 0) return;
-
-          const relX = rect.left - containerRect.left;
-          const relY = rect.top - containerRect.top;
-          const relW = rect.width;
-          const relH = rect.height;
-
-          const pdfX = (relX / containerRect.width) * 210;
-          const pdfY = (relY / containerRect.height) * 297;
-          const pdfW = (relW / containerRect.width) * 210;
-          const pdfH = (relH / containerRect.height) * 297;
-
-          pdf.link(pdfX, pdfY, pdfW, pdfH, { url: href });
-        });
-      });
-
-      pdf.save(fileName);
-    } catch (err) {
-      console.error('Failed to generate PDF:', err);
-      const cvContent = t.hero.cvContent;
-      const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = t.hero.cvFileName || 'Yim_Lemeng_Resume.txt';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    } finally {
-      setIsGeneratingPdf(false);
+      window.history.pushState(null, '', `#${sectionId}`);
     }
   };
 
   return (
     <section id="home" className={styles.hero}>
-      {/* Hidden CV template used for generating PDF */}
-      <CVTemplate ref={cvRef} language={language} />
 
       <div className={`${styles.heroContainer} container`}>
         {/* Intro text */}
@@ -194,16 +95,19 @@ export default function Hero() {
           </p>
 
           <div className={styles.ctaGroup}>
-            <button 
-              type="button"
-              onClick={() => setIsCvModalOpen(true)}
+            <a
+              href="#projects"
+              onClick={(e) => handleSectionScroll(e, 'projects')}
               className={styles.btnPrimary}
-              title={language === 'km' ? 'មើលប្រវត្តិរូបសង្ខេប (CV)' : 'View Curriculum Vitae (CV)'}
             >
-              <span>{t.hero.viewCv}</span>
-              <Eye size={18} />
-            </button>
-            <a href="#contact" onClick={handleContactScroll} className={styles.btnSecondary}>
+              <span>{t.hero.viewProjects}</span>
+              <Layers size={18} />
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleSectionScroll(e, 'contact')}
+              className={styles.btnSecondary}
+            >
               <span>{t.hero.contactMe}</span>
               <ArrowRight size={18} className={styles.arrowIcon} />
             </a>
@@ -224,14 +128,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-
-      {/* Interactive CV Viewer Modal */}
-      <CVModal 
-        isOpen={isCvModalOpen} 
-        onClose={() => setIsCvModalOpen(false)} 
-        onDownloadPdf={handleDownloadCV}
-        isGeneratingPdf={isGeneratingPdf}
-      />
     </section>
   );
 }
