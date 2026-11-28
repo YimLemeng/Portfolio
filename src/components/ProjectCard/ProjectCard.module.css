@@ -22,7 +22,7 @@
   width: 100%;
   aspect-ratio: 16/10;
   overflow: hidden;
-  background: #090e1a;
+  background: #140e0a;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -101,8 +101,9 @@
 .iconLink:hover {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
+  color: #1a1107;
   transform: translateY(-2px) scale(1.08);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
 }
 
 .content {
@@ -187,21 +188,21 @@
   font-weight: 600;
   padding: 4px 11px;
   border-radius: var(--border-radius-full);
-  background: rgba(99, 102, 241, 0.08);
-  color: #a5b4fc;
-  border: 1px solid rgba(99, 102, 241, 0.22);
+  background: rgba(212, 175, 55, 0.1);
+  color: #f3d068;
+  border: 1px solid rgba(212, 175, 55, 0.25);
   transition: all var(--transition-fast);
 }
 
 :global([data-theme='light']) .tag {
-  color: #4338ca;
-  background: rgba(79, 70, 229, 0.06);
-  border-color: rgba(79, 70, 229, 0.18);
+  color: #8c1d18;
+  background: rgba(180, 130, 26, 0.08);
+  border-color: rgba(180, 130, 26, 0.24);
 }
 
 .tag:hover {
-  background: rgba(99, 102, 241, 0.16);
-  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.48);
 }
 
 .actions {
@@ -226,16 +227,16 @@
 }
 
 .actionBtnPrimary {
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 14px -2px rgba(99, 102, 241, 0.45);
+  background: linear-gradient(135deg, #e5c158 0%, #d4af37 55%, #b4821a 100%);
+  color: #1a1107;
+  border: 1px solid rgba(254, 240, 138, 0.45);
+  box-shadow: 0 4px 14px -2px rgba(212, 175, 55, 0.4);
 }
 
 .actionBtnPrimary:hover {
-  background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #f3d068 0%, #e5c158 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.55);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.52);
 }
 
 .actionBtnSecondary {

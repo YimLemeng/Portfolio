@@ -119,12 +119,13 @@
 
 /* Greeting Title */
 .greeting {
+  font-family: var(--font-display);
   font-size: 3.25rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
   margin-bottom: 14px;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   white-space: nowrap;
 }
 
@@ -280,17 +281,17 @@
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #b4821a 100%);
+  color: #1a1107;
+  border: 1px solid rgba(254, 240, 138, 0.45);
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   position: relative;
   overflow: hidden;
 }
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px 0 rgba(99, 102, 241, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 25px 0 rgba(212, 175, 55, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .btnPrimary:active {
@@ -332,8 +333,8 @@
   position: relative;
   border-radius: calc(var(--border-radius-xl) + 4px);
   padding: 8px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.2) 50%, rgba(56, 189, 248, 0.4) 100%);
-  box-shadow: 0 25px 60px -15px rgba(99, 102, 241, 0.35), 0 0 40px rgba(99, 102, 241, 0.15);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.55) 0%, rgba(140, 29, 24, 0.35) 50%, rgba(212, 175, 55, 0.55) 100%);
+  box-shadow: 0 25px 60px -15px rgba(212, 175, 55, 0.28), 0 0 40px rgba(212, 175, 55, 0.14);
 }
 
 .imageCard {
@@ -344,8 +345,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0f172a;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+  background: #17110d;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 576px) {

@@ -35,10 +35,10 @@
   width: 44px;
   height: 44px;
   border-radius: var(--border-radius-md);
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
-  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(140, 29, 24, 0.2));
+  border: 1px solid rgba(212, 175, 55, 0.4);
   color: var(--accent-primary);
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.18);
 }
 
 .headerIcon {
@@ -56,7 +56,7 @@
 .timeline {
   position: relative;
   border-left: 2px solid;
-  border-image: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, rgba(99, 102, 241, 0.1) 100%) 1;
+  border-image: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, rgba(212, 175, 55, 0.12) 100%) 1;
   padding-left: 32px;
   margin-left: 14px;
   display: flex;
@@ -104,9 +104,9 @@
 .period {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #a5b4fc;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #f3d068;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.28);
   padding: 3px 10px;
   border-radius: var(--border-radius-full);
   letter-spacing: 0.04em;
@@ -115,9 +115,9 @@
 }
 
 :global([data-theme='light']) .period {
-  color: #4338ca;
-  background: rgba(79, 70, 229, 0.08);
-  border-color: rgba(79, 70, 229, 0.2);
+  color: #8c1d18;
+  background: rgba(180, 130, 26, 0.1);
+  border-color: rgba(180, 130, 26, 0.25);
 }
 
 .roleTitle {

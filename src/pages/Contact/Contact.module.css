@@ -76,10 +76,10 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16), rgba(139, 92, 246, 0.16));
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(140, 29, 24, 0.18));
+  border: 1px solid rgba(212, 175, 55, 0.35);
   color: var(--accent-primary);
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.15);
   flex-shrink: 0;
   transition: all var(--transition-fast);
 }

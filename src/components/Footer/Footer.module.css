@@ -14,7 +14,7 @@
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.65), transparent);
 }
 
 .footerContainer {
@@ -45,7 +45,13 @@
 }
 
 .accent {
-  background: linear-gradient(135deg, #818cf8, #a855f7);
+  background: linear-gradient(135deg, #fde68a, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+:global([data-theme='light']) .accent {
+  background: linear-gradient(135deg, #8c1d18, #b4821a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -79,9 +85,9 @@
 .socialLink:hover {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
-  color: #ffffff;
+  color: #1a1107;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
 }
 
 .divider {
